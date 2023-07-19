@@ -9,6 +9,7 @@
     display: none;
 }
 
+
 .modalSection.open{
    display: flex;
 }
