@@ -5,6 +5,7 @@ import './RegisterComponent.css'
 import board from '../../assets/img/pizarra.png'
 import equipo from '../../assets/img/equipo.png'
 import {IoArrowBackCircleOutline} from 'react-icons/io5'
+import {DiAtom} from 'react-icons/di'
 
 function RegisterComponent() {
     
@@ -18,6 +19,7 @@ function RegisterComponent() {
                     <img src={equipo} alt="user-img" className='iconRegister'/>
                 </section>
                 <p>Reclutamiento de instructores en Línea</p>
+                <DiAtom className='atomIcon'/>
                 <p>CEF</p>
             </div>
             <LogComponent/>

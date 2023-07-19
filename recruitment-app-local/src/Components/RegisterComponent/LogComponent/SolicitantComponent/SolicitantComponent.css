@@ -35,11 +35,12 @@
     height: 35px;
     margin: 10px 0px;
     border-radius: 5px;
+    font-size: 12pt;
     border: none;
     background: #306ba7;
     color: white;
-    font-weight: bolder;
     cursor: pointer;
+    font-family: 'PT Serif', serif;
 }
 
 .solicitantComponent > button:hover{
