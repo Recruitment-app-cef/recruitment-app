@@ -4,17 +4,24 @@
     justify-content: center;
     align-items: center;
     width:50%;
-    height: 150px;
+    height: 100%;
 }
 
 .solicitantComponent > p{
     margin: 5px 0px;
-    font-size: 10pt;
+    font-size: 15pt;
+}
+
+.solicitantComponent > p:nth-child(2){
+    font-size: 9pt;
+    font-style: italic;
+    opacity: 75%;
+    margin: 10px 0px;
 }
 
 .solicitantComponent > input{
-    width: 170px;
-    height: 20px;
+    width: 220px;
+    height: 30px;
     border-radius: 5px;
     border: 1px solid rgb(176, 176, 176);
     padding: 5px;
@@ -25,11 +32,11 @@
 
 .solicitantComponent > button{
     width: 100px;
-    height: 30px;
-    margin: 5px 0px;
+    height: 35px;
+    margin: 10px 0px;
     border-radius: 5px;
     border: none;
-    background: #638cb5;
+    background: #306ba7;
     color: white;
     font-weight: bolder;
     cursor: pointer;
@@ -39,6 +46,6 @@
     transform: scale(1.1);
     transition: all 0.2s;
     background: white;
-    color: #638cb5;
-    border: 1px solid #638cb5;
+    color: #306ba7;
+    border: 1px solid #306ba7;
 }

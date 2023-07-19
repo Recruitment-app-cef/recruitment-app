@@ -21,8 +21,10 @@ function SolicitantComponent(){
 
     return(
         <form className="solicitantComponent">
-            <p>Ingresa tu carné</p>
-            <input type="text" placeholder="Ej:00009919"/>
+            <p>Ingresa tu identificador</p>
+            <p>Nota: Si eres solicitante ingresa tu numero de carné, 
+                si eres usuario del sistema ingresa tu credencial correspondiente</p>
+            <input type="text" placeholder="Ej:00009919 ó username@cef.com"/>
             <button onClick={onClickButton}>Continuar</button>
         </form>
     )

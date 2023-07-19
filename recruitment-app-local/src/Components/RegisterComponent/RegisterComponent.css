@@ -5,6 +5,22 @@
     flex-flow: column nowrap;
     justify-content: flex-start;
     align-items: center;
+    position: relative;
+}
+
+.arrowIcon{
+    position:absolute;
+    color: rgb(0, 116, 17);
+    top:30px;
+    right:20px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.arrowIcon:hover{
+    transform: scale(1.1);
+    transition:all 0.2s;
 }
 
 .imgViewTitle{

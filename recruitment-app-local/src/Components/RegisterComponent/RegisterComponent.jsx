@@ -1,14 +1,16 @@
 import UplineComponent from '../../Utils/UplineComponent/UplineComponent'
 import LogComponent from './LogComponent/LogComponent'
 import './RegisterComponent.css'
-import WarningComponent from './WarningComponent/WarningComponent'
+//import WarningComponent from './WarningComponent/WarningComponent'
 import board from '../../assets/img/pizarra.png'
 import equipo from '../../assets/img/equipo.png'
+import {IoArrowBackCircleOutline} from 'react-icons/io5'
 
 function RegisterComponent() {
     
     return(
         <div className='registerComponentView'>
+            <IoArrowBackCircleOutline className='arrowIcon'/>
             <UplineComponent/>
             <div className='imgViewTitle'>
                 <section className='imgSection'>
@@ -19,7 +21,7 @@ function RegisterComponent() {
                 <p>CEF</p>
             </div>
             <LogComponent/>
-            <WarningComponent/>
+
         </div>
     )
 }
