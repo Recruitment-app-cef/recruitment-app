@@ -3,7 +3,6 @@ import './WarningComponent.css'
 function WarningComponent(){
     return(
         <div className='warningComponent'>
-            <button className='btnCloseWarning'>x</button>
             <p>Requisitos para ser instructor</p>
             <ul>
                 <li>Tener un CUM igual o mayor que 7.0</li>

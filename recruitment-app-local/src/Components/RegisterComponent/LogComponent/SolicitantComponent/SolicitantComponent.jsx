@@ -16,7 +16,7 @@ function SolicitantComponent(){
             timer: 1000
           })
 
-        navigate("/recruitment");
+        navigate("/recruitment/grant");
     }
 
     return(
@@ -26,6 +26,7 @@ function SolicitantComponent(){
                 si eres usuario del sistema ingresa tu credencial correspondiente</p>
             <input type="text" placeholder="Ej:00009919 ó username@cef.com"/>
             <button onClick={onClickButton}>Continuar</button>
+            <p>UCA (CEF) Sistema de Reclutamiento de Personal ® Derechos reservados</p>
         </form>
     )
 }

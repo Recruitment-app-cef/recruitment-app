@@ -9,7 +9,6 @@ function App() {
     <div className='app'>
       <BrowserRouter>
         <Routes>
-          <Route path="/recruitment" element={<Register/>}/>
           <Route path="/recruitment/grant" element={<One/>}/>
         </Routes>
       </BrowserRouter>  

@@ -5,26 +5,7 @@
     width: 700px;
     height: 200px;
     position: relative;
-}
-
-.btnCloseWarning{
-    position: absolute;
-    right: -10px;
-    top: -10px;
-    color: rgb(154, 2, 2);
-    background: white;
-    border: 1px dashed red;
-    border-radius: 15px;
-    height: 25px;
-    width: 25px;
-    cursor: pointer;    
-}
-
-.btnCloseWarning:hover{
-    color: white;
-    background: rgb(154, 2, 2);
-    border: none;
-    transition: all 0.2s;
+    background-color: white;
 }
 
 .warningComponent > p{
