@@ -10,6 +10,12 @@
     box-shadow: 0.5px 0.5px 5px rgb(176, 176, 176);
 }
 
+@media(max-width:768px){
+    .imgViewTitle{
+        width: 350px;
+    }
+}
+
 .imgViewTitle > p{
     margin: 5px 0px;
     font-family: 'Lugrasimo', cursive;
@@ -19,6 +25,16 @@
 
 .imgViewTitle > p:nth-child(2){
     font-size: 24px;
+}
+
+@media(max-width: 768px){
+    .imgViewTitle > p:nth-child(2){
+        font-size: 16px;
+    }
+
+    .imgViewTitle > p:nth-child(3){
+        font-size: 14px;
+    }
 }
 
 .imgViewTitle > p:nth-child(3){
@@ -39,4 +55,17 @@
 .imgSection > img:nth-child(2){
     width: 100px;
     height: 100px;
+}
+
+@media(max-width:768px){
+
+    .imgSection > img:nth-child(1){
+        width: 70px;
+        height: 70px;
+    }
+
+    .imgSection > img:nth-child(2){
+        width: 60px;
+        height: 60px;
+    }
 }

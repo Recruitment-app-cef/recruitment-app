@@ -7,9 +7,22 @@
     height: 100%;
 }
 
+@media(max-width: 768px){
+    .solicitantComponent{
+        width: 100%;
+    }
+}
+
+
 .solicitantComponent > p{
     margin: 5px 0px;
     font-size: 15pt;
+}
+
+@media(max-width:768px){
+    .solicitantComponent > p{
+        font-size: 13pt;
+    }
 }
 
 .solicitantComponent > p:nth-child(2){
@@ -17,6 +30,13 @@
     font-style: italic;
     opacity: 75%;
     margin: 10px 0px;
+}
+
+@media(max-width:768px){
+    .solicitantComponent > p:nth-child(2){
+        font-size: 8pt;
+        margin: 10px 5px;
+    }
 }
 
 .solicitantComponent > p:nth-child(5){
@@ -29,6 +49,13 @@
     justify-content: center;
     opacity: 85%;
     color: gray;
+}
+
+@media(max-width:768px){
+    .solicitantComponent > p:nth-child(5){
+        font-size: 8pt;
+        width: 90%;
+    }
 }
 
 .solicitantComponent > input{
