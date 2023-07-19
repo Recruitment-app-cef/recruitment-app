@@ -1,0 +1,31 @@
+.formUserSystem{
+    width: 50%;
+    height: 150px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.inputsFormSystem{
+    width: 100%;
+}
+
+.formUserSystem > button{
+    width: 100px;
+    height: 30px;
+    border: none;
+    color: white;
+    background-color: #638cb5;
+    border-radius: 5px;
+    font-weight: bolder;
+    cursor: pointer;
+}
+
+.formUserSystem > button:hover{
+    transform: scale(1.1);
+    transition: all 0.2s;
+    background: white;
+    color: #638cb5;
+    border: 1px solid #638cb5;
+}

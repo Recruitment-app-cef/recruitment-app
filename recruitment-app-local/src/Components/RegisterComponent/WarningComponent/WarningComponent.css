@@ -1,0 +1,47 @@
+.warningComponent{
+    border: 3px solid rgb(255, 35, 35);
+    margin: 0px 0px 10px 0px;
+    padding: 0px 0px 10px 0px;
+    width: 700px;
+    height: 200px;
+    position: relative;
+}
+
+.btnCloseWarning{
+    position: absolute;
+    right: -10px;
+    top: -10px;
+    color: rgb(154, 2, 2);
+    background: white;
+    border: 1px dashed red;
+    border-radius: 15px;
+    height: 25px;
+    width: 25px;
+    cursor: pointer;    
+}
+
+.btnCloseWarning:hover{
+    color: white;
+    background: rgb(154, 2, 2);
+    border: none;
+    transition: all 0.2s;
+}
+
+.warningComponent > p{
+    font-family: "https://fonts.googleapis.com/css2?family=Exo+2&display=swap";
+    font-weight: bolder;
+}
+
+.warningComponent > ul{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.warningComponent > ul > li{
+    font-family: "https://fonts.googleapis.com/css2?family=Exo+2&display=swap";
+    margin: 0px;
+    font-size: 10pt;
+    text-align: left;
+}

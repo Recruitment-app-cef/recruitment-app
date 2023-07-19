@@ -1,0 +1,44 @@
+.solicitantComponent{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    width:50%;
+    height: 150px;
+}
+
+.solicitantComponent > p{
+    margin: 5px 0px;
+    font-size: 10pt;
+}
+
+.solicitantComponent > input{
+    width: 170px;
+    height: 20px;
+    border-radius: 5px;
+    border: 1px solid rgb(176, 176, 176);
+    padding: 5px;
+    margin: 15px 0px;
+    font-size: 9pt;
+    font-style: italic;
+}   
+
+.solicitantComponent > button{
+    width: 100px;
+    height: 30px;
+    margin: 5px 0px;
+    border-radius: 5px;
+    border: none;
+    background: #638cb5;
+    color: white;
+    font-weight: bolder;
+    cursor: pointer;
+}
+
+.solicitantComponent > button:hover{
+    transform: scale(1.1);
+    transition: all 0.2s;
+    background: white;
+    color: #638cb5;
+    border: 1px solid #638cb5;
+}
