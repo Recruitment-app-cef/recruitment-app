@@ -5,7 +5,7 @@ import {FiEdit3} from 'react-icons/fi'
 function EmailComponent(props){
     return(
         <div className='emailComponent'>
-            <p>{props.email}</p>
+            <p>{props.title}</p>
             <div className='icons'>
                 <GoTrash className='trashIcon'/>
                 <FiEdit3 className='editIcon'/>

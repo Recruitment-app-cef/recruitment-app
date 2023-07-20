@@ -1,6 +1,6 @@
-import EmailInputComponent from './EmailInputComponent/EmailInputComponent'
+import EmailInputComponent from '../../../Utils/EmailInputComponent/EmailInputComponent'
 import ImageInputComponent from './ImageInputComponent/ImageInputComponent'
-import InputComponent from './InputComponent/InputComponent'
+import InputComponent from '../../../Utils/InputComponent/InputComponent'
 import './PersonalInfoComponent.css'
 import {FiAlertCircle} from 'react-icons/fi'
 
@@ -20,7 +20,7 @@ function PersonalInfoComponent(){
                 <InputComponent title="Apellido(s):" placeholder="Ej: Pérez Pérez"/>
                 <InputComponent title="Teléfono fijo:" placeholder="Ej: 2222-3333"/>
                 <InputComponent title="Teléfono móvil:" placeholder="Ej: 7787-8778"/>
-                <EmailInputComponent/>
+                <EmailInputComponent title="Email(s):" placeholder="Ej: username@email.com"/>
             </section>
         </div>
     )

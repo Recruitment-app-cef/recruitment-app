@@ -5,6 +5,7 @@ import {IoArrowBackCircleOutline} from 'react-icons/io5'
 import {useNavigate} from 'react-router-dom'
 import swal from 'sweetalert2'
 import PersonalInfoComponent from './PersonalInfoComponent/PersonalInfoComponent'
+import CareerInfoComponent from './CareerInfoComponent/CareerInfoComponent'
 
 function FormInstructors() {
 
@@ -31,7 +32,8 @@ function FormInstructors() {
             <UplineComponent/>
             <ImageComponent/>
             <section className='informationSection'>
-                <PersonalInfoComponent/>    
+                <PersonalInfoComponent/>  
+                <CareerInfoComponent/>  
             </section>
         </div>
     )

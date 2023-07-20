@@ -7,11 +7,12 @@
     justify-content: flex-start;
     align-items: center;
     margin: 5px 0px;
+    font-family: 'Roboto', sans-serif;
 }
 
 .inputComponent > p{
     margin: 0;
-    font-size: 11pt;
+    font-size: 10pt;
 }
 
 .inputComponent > input{
