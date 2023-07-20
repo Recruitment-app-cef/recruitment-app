@@ -80,11 +80,11 @@
     color: white;
     cursor: pointer;
     font-family: 'PT Serif', serif;
+    transition: all ease-in-out 0.3s;
 }
 
 .solicitantComponent > button:hover{
-    transform: scale(1.1);
-    transition: all 0.2s;
+    transform: scale(1.02);
     background: white;
     color: #306ba7;
     border: 1px solid #306ba7;

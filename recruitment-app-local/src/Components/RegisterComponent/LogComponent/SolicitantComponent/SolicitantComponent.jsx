@@ -3,11 +3,9 @@ import swal from 'sweetalert2'
 import { useNavigate } from 'react-router-dom';
 
 function SolicitantComponent(){
+    const navigate = useNavigate();
 
-    function onClickButton(){
-
-        const navigate = useNavigate();
-
+    const onClickButton = () => {
         swal.fire({
             position: 'center-center',
             icon: 'success',
@@ -16,11 +14,11 @@ function SolicitantComponent(){
             timer: 1000
           })
 
-        navigate("/recruitment/grant");
+        navigate("/recruitment/inscription");
     }
 
     return(
-        <form className="solicitantComponent">
+        <form onSubmit={(e) => { e.preventDefault(); }} className="solicitantComponent">
             <p>Ingresa tu identificador</p>
             <p>Nota: Si eres solicitante ingresa tu numero de carné, 
                 si eres usuario del sistema ingresa tu credencial correspondiente</p>

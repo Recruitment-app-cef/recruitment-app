@@ -1,7 +1,7 @@
 import './App.css'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Form, Route, Routes } from 'react-router-dom'
 import Register from './Pages/Register'
-import One from './Pages/One'
+import FormInscriptions from './Pages/FormInscriptions'
 
 function App() {
 
@@ -9,7 +9,8 @@ function App() {
     <div className='app'>
       <BrowserRouter>
         <Routes>
-          <Route path="/recruitment/grant" element={<One/>}/>
+          <Route path="/recruitment" element={<Register/>}/>
+          <Route path="/recruitment/inscription" element={<FormInscriptions/>}/>
         </Routes>
       </BrowserRouter>  
     </div>

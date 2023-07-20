@@ -3,7 +3,7 @@ import './WarningComponent.css'
 function WarningComponent(){
     return(
         <div className='warningComponent'>
-            <p>Requisitos para ser instructor</p>
+            <h1>Requisitos para ser instructor</h1>
             <ul>
                 <li>Tener un CUM igual o mayor que 7.0</li>
                 <li>Nota de área mayor o igual que 8.0</li>

@@ -1,28 +1,35 @@
 .warningComponent{
-    border: 3px solid rgb(255, 35, 35);
-    margin: 0px 0px 10px 0px;
-    padding: 0px 0px 10px 0px;
-    width: 700px;
-    height: 200px;
+    margin: 0 0 10px;
+    padding: 1.5rem;
+    width: 100%;
+    max-width: 768px;
+
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 1rem;
+
     position: relative;
     background-color: white;
+    border-radius: 0.75rem;
 }
 
-.warningComponent > p{
-    font-family: "https://fonts.googleapis.com/css2?family=Exo+2&display=swap";
-    font-weight: bolder;
+.warningComponent > h1{
+    margin: 0px;
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.3rem;
+    font-weight: 600;
 }
 
 .warningComponent > ul{
+    margin: 0px;
     display: flex;
     flex-flow: column nowrap;
-    justify-content: center;
-    align-items: flex-start;
+
+    gap: 0.5rem;
 }
 
 .warningComponent > ul > li{
-    font-family: "https://fonts.googleapis.com/css2?family=Exo+2&display=swap";
+    font-family: "Roboto", sans-serif;
     margin: 0px;
-    font-size: 10pt;
     text-align: left;
 }

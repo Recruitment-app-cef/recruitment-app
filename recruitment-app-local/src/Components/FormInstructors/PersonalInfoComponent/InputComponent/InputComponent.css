@@ -1,0 +1,33 @@
+.inputComponent{
+    width: 100%;
+    max-width: 400px;
+    height: 40px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 5px 0px;
+}
+
+.inputComponent > p{
+    margin: 0;
+    font-size: 11pt;
+}
+
+.inputComponent > input{
+    margin: 0 5px;
+    width: 200px;
+    height: 20px;
+    padding: 0.8rem;
+    font-style: italic;
+    font-size: 9pt;
+    border-radius: 5px;
+    border: 1px solid rgb(176, 176, 176);
+}
+
+.alertIconInput{
+    height: 20px;
+    width: 20px;
+    color:rgb(255, 75, 75);
+    margin: 0 1rem 0 5px;
+}
