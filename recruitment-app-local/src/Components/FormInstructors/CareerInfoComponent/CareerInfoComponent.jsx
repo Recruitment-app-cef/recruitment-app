@@ -1,7 +1,7 @@
 import EmailInputComponent from '../../../Utils/EmailInputComponent/EmailInputComponent';
 import InputComponent from '../../../Utils/InputComponent/InputComponent';
 import './CareerInfoComponent.css'
-import CommentComponent from './CommentComponent/CommentComponen';
+import CommentComponent from '../../../Utils/CommentComponent/CommentComponent';
 import ListInputComponent from './ListInputComponent/ListInputComponent';
 import SubjectInputComponent from './SubjectInputComponent/SubjectInputComponent';
 
@@ -14,7 +14,8 @@ function CareerInfoComponent(){
             <SubjectInputComponent/>
             <InputComponent title="CUM:" placeholder="Ej: 7.33"/>
             <EmailInputComponent title="Materias próximas:" placeholder="Ej: Fundamentos de programación"/>
-            <CommentComponent/>
+            <CommentComponent title="Liste algunas experiencias como instructor
+                (especificando las materias en que ha colaborado), si las hubiese:"/>
         </div>
     )
 }

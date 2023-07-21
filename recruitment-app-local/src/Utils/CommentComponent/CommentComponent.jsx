@@ -1,11 +1,9 @@
 import './CommentComponent.css'
 
-function CommentComponent(){
+function CommentComponent(props){
     return(
         <div className='commentComponent'>
-            <p>Liste algunas experiencias como instructor
-                (especificando las materias en que ha colaborado), si las hubiese:
-            </p>
+            <p>{props.title}</p>
             <input type='text' placeholder='Deja tu comentario...'/>
         </div>
     )

@@ -16,9 +16,9 @@ function RegisterComponent() {
 
     const onClickButton = () => {
         swal.fire({
-            title: 'Do you want to return?',
+            title: 'Volver a la página anterior?',
             showDenyButton: true,
-            confirmButtonText: 'Return',
+            confirmButtonText: 'Regresar',
             denyButtonText: `No`,
           }).then((result) => {
             /* Read more about isConfirmed, isDenied below */

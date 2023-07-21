@@ -68,11 +68,12 @@
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
     cursor: pointer;
+    transition: all 0.3s ease-in-out;
 }
 
 .btnAddMail:hover{
     transform: scale(1.05);
-    transition: all 0.2s ease-in-out;
+    transition: all 0.3s ease-in-out;
     background: rgb(0, 116, 17);
     color: white;
     border: none;
