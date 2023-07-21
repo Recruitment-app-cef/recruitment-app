@@ -11,6 +11,13 @@
     font-size: 10pt;
 }
 
+@media(max-width: 768px){
+    .emailComponent > p{
+        font-size: 8pt;
+        margin: 5px 0;
+    }
+}
+
 .icons{
     margin: 0 10px;
     width: 50px;
@@ -25,6 +32,18 @@
     width: 18px;
     color: rgb(251, 61, 61);
     cursor: pointer;
+}
+
+@media(max-width: 768px){
+    .trashIcon{
+        width: 15px;
+        height: 15px;
+    }
+
+    .editIcon{
+        width: 15px;
+        height: 15px;
+    }
 }
 
 .trashIcon:hover{
