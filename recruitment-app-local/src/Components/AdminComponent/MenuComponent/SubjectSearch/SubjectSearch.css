@@ -1,0 +1,52 @@
+.subjectSearchComponent{
+    width: 100%;
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.8rem;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.subjectSearchComponent > h3{
+    margin: 0;
+}
+
+.selectSubjectSection{
+    margin: 0;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.selectSubjectSection > select{
+    margin: 0;
+    border-radius: 5px;
+    border: 1px solid rgb(203, 203, 203);
+    padding: 0.4rem;
+    font-size: 0.8rem;
+    color: gray;
+    font-style: italic;
+    cursor: pointer;
+}
+
+.subjectApplySection{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0.7rem;
+}
+
+.subjectApplySection > p{
+    margin: 0;
+}
+
+.subjectApplySection > input{
+    margin: 0;
+    width: 15px;
+    height: 15px;
+}
