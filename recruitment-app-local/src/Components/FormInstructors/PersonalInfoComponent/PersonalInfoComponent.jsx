@@ -4,7 +4,23 @@ import InputComponent from '../../../Utils/InputComponent/InputComponent'
 import './PersonalInfoComponent.css'
 import {FiAlertCircle} from 'react-icons/fi'
 
-function PersonalInfoComponent(){
+function PersonalInfoComponent(props){
+    
+    //función para obtener los valores de los "inputComponents"
+    function obtainingInputValue(identifier,value){
+        props.onExtract(identifier,value)
+    }
+
+    //función para obtener el valor de la imagen
+    function obtainingImageValue(value){
+        props.onExtract('image',value)
+    }
+
+    //función para obtener los valores de los "emailInputComponents"
+    function obtainingEmails(identifier,emails){
+        props.onExtract(identifier, emails)
+    }
+
     return(
         <div className='personalInfoComponent'>
             <h2>Llene el formulario para una nueva solicitud</h2>
@@ -13,14 +29,20 @@ function PersonalInfoComponent(){
                 <p>Los campos que contienen este icono son de caracter obligatorio</p>
             </article>
             <h3>Sección de información personal</h3>
-            <ImageInputComponent/>
+            <ImageInputComponent onExtract={obtainingImageValue} state={props.onClickState}/>
             <section className='inputsData'>
-                <InputComponent title="Carné:" placeholder="Ej: 00009919"/>
-                <InputComponent title="Nombre(s):" placeholder="Ej: Juan Alexander"/>
-                <InputComponent title="Apellido(s):" placeholder="Ej: Pérez Pérez"/>
-                <InputComponent title="Teléfono fijo:" placeholder="Ej: 2222-3333"/>
-                <InputComponent title="Teléfono móvil:" placeholder="Ej: 7787-8778"/>
-                <EmailInputComponent title="Email(s):" placeholder="Ej: username@email.com"/>
+                <InputComponent title="Carné:" placeholder="Ej: 00009919" 
+                onExtract={obtainingInputValue} nameInput="carné" state={props.onClickState}/>
+                <InputComponent title="Nombre(s):" placeholder="Ej: Juan Alexander" 
+                onExtract={obtainingInputValue} nameInput="nombres" state={props.onClickState}/>
+                <InputComponent title="Apellido(s):" placeholder="Ej: Pérez Pérez" 
+                onExtract={obtainingInputValue} nameInput="apellidos" state={props.onClickState}/>
+                <InputComponent title="Teléfono fijo:" placeholder="Ej: 2222-3333" 
+                onExtract={obtainingInputValue} nameInput="teléfono fijo" state={props.onClickState}/>
+                <InputComponent title="Teléfono móvil:" placeholder="Ej: 7787-8778" 
+                onExtract={obtainingInputValue} nameInput="teléfono móvil" state={props.onClickState}/>
+                <EmailInputComponent title="Email(s):" placeholder="Ej: username@email.com"
+                nameInput="email" state={props.onClickState} onExtract={obtainingEmails}/>
             </section>
         </div>
     )

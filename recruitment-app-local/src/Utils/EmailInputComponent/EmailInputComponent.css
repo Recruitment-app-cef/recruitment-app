@@ -89,6 +89,8 @@
     scroll-behavior: smooth;
     border-radius: 5px;
     margin: 5px 0;
+    width: 50%;
+    max-width: 250px;
 }
 
 @media(max-width: 768px){

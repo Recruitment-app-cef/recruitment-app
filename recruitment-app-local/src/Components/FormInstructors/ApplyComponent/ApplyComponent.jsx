@@ -2,20 +2,79 @@ import SelectComponent from '../../../Utils/SelectComponent/SelectComponent'
 import InputComponent from '../../../Utils/InputComponent/InputComponent'
 import './ApplyComponent.css'
 import CommentComponent from '../../../Utils/CommentComponent/CommentComponent'
+import { useState } from 'react'
 
-function ApplyComponent(){
+const selectComponents = [
+    {
+        id: 1,
+        title: "Primera opción:",
+        options:[
+            "Física l Discusión",
+            "Electricidad y Magnetismo Laboratorios",
+            "Física ll Discusión",
+            "Física l Laboratorios"
+        ],
+        nombre: "primeraOpcion"
+    },
+    {
+        id: 2,
+        title: "Segunda opción:",
+        options:[
+            "Física l Discusión",
+            "Electricidad y Magnetismo Laboratorios",
+            "Física ll Discusión",
+            "Física l Laboratorios"
+        ],
+        nombre: "segundaOpcion"
+    },
+    {
+        id: 3,
+        title: "Ciclo para el que solicita:",
+        options: [
+            "Ciclo 01-2023",
+            "Ciclo 02-2023",
+            "Ciclo 03-2023",
+            "Ciclo 02-2024"
+        ],
+        nombre: "ciclo"
+    },
+    {
+        id: 4,
+        title: "Tipo de Contratación:",
+        options: [
+            "Por Servicio Social",
+            "Remunerado"
+        ],
+        nombre: "tipoContratacion"
+    }
+]
+function ApplyComponent(props){
+
+    function obtainingInputValue(identifier, value){
+        props.onExtract(identifier, value)
+    }
+
+    function obtainingComment(identifier,value){
+        props.onExtract(identifier,value)
+    }
+
+    function obtainingSelectValue(identifier,value){
+        console.log(identifier,value)
+        props.onExtract(identifier,value)
+    }
+
     return(
         <div className='applyComponent'>
             <h3>Sección de información para contratación</h3>
             <p>Especifica en que materia y actividad quisieras colaborar como instructor</p>
-            <SelectComponent title="Primera opción:" one="Física l Discusión" two="Electricidad y Magnetismo Laboratorios"
-                three="Física ll Discusión" four="Física l Laboratorios"/>
-            <SelectComponent title="Segunda opción:" one="Física l Discusión" two="Electricidad y Magnetismo Laboratorios"
-                three="Física ll Discusión" four="Física l Laboratorios"/>
-            <SelectComponent title="Ciclo para el que solicita:" one="Ciclo 01-2023" two="Ciclo 02-2023"
-                three="Ciclo 03-2023" four="Ciclo 02-2024"/>
-            <InputComponent title="Nota de 1a. opción:"/>
-            <CommentComponent title="Puede expresar algún comentario adicional:"/>
+            {selectComponents.map((op) => {
+                return <SelectComponent key={`${op.id}_option`} title={op.title} options={op.options}
+                onExtract={obtainingSelectValue} identifier={op.nombre}/>
+            })}
+            <InputComponent title="1a. opción (Nota):" onExtract={obtainingInputValue}
+                nameInput="nota" state={props.onClickState}/>
+            <CommentComponent title="Puede expresar algún comentario adicional:"
+                onExtract={obtainingComment} nameInput="comentario"/>
             <p>UCA (CEF) Sistema de Reclutamiento de Personal ® Derechos reservados</p>
         </div>
     )

@@ -1,0 +1,13 @@
+.menuComponent{
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 1px 1px 5px rgba(117, 117, 117, 0.5);
+    border-radius: 10px;
+    padding: 1rem;
+}
+
+.menuComponent > h2{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    margin: 0;
+}

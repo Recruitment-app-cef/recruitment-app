@@ -1,17 +1,29 @@
 import './ListInputComponent.css'
 import {FiAlertCircle} from 'react-icons/fi'
 
-function ListInputComponent(){
+function ListInputComponent(props){
+
+    const options = ['Primer Ciclo', 'Segundo Ciclo', 
+    'Tercer Ciclo', 'Cuarto Ciclo', 'Quinto Ciclo', 'Sexto Ciclo',
+    'Séptimo Ciclo', 'Octavo Ciclo', 'Noveno Ciclo', 'Décimo Ciclo']
+
+    function obtainingSelectValue(event){
+        props.onExtract("nivelEstudio", event.target.value)
+    }
+
+
     return(
         <div className='listInputComponent'>
-            <p>Nivel de estudio</p>
-            {<FiAlertCircle className='alertIconInput'/>}
-            <select>
-                <option value="0">Primer Ciclo</option>
-                <option value="1">Segundo Ciclo</option>
-                <option value="2">Tercer Ciclo</option>
-                <option value="3">Cuarto Ciclo</option>
-                <option value="4">Quinto Ciclo</option>
+            <div className='titleListInputComponent'>
+                <p>Nivel de estudio</p>
+                {<FiAlertCircle className='alertIconInput'/>}
+            </div>
+            <select onChange={obtainingSelectValue}>
+                {
+                    options.map((item) => {
+                        return <option key={`${item}_option`} value={item}>{item}</option>
+                    })
+                }
             </select>
         </div>
     )
