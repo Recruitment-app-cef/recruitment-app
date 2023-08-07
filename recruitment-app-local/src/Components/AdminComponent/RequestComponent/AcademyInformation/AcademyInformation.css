@@ -1,0 +1,50 @@
+.academyInformation{
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.twoPartsSection{
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.twoPartsSection > section{
+    width: 50%;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.twoPartsSection >  section > p{
+    margin: 0;
+    font-size: 0.8rem;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.twoPartsSection > section > p > ul{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 0.1rem;
+}
+
+.twoPartsSection > section > p > ul > li{
+    margin: 0;
+    font-size: 0.8rem;
+    list-style: none;
+}

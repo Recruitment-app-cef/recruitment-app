@@ -1,0 +1,45 @@
+.userInformation{
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+    border: 1px solid #d5d5d5;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    padding: 0 0 0.5rem 0;
+}
+
+.userInformation > img{
+    object-fit: cover;
+    width: 25%;
+    height: 100%;
+}
+
+.personalInformation{
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    padding: 0.25rem;
+}
+
+.personalInformation > section{
+    width: 50%;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 0.5rem;
+}
+
+.personalInformation > section > p{
+    margin:0;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 0.8rem;
+    display: flex;
+    flex-flow: row wrap;
+}
