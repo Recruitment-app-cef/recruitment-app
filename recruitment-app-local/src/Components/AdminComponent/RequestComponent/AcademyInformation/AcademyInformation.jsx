@@ -6,7 +6,7 @@ function AcademyInformation(){
                 <section className='twoPartsSection'>
                     <section className='firstPart'>
                         <p><b>Carrera: </b> Ingeniería Informática</p>
-                        <p><b>Teléfonos: </b>
+                        <p><b>Teléfono/s: </b>
                             <ul>
                                 <li>2222-2222</li>
                                 <li>2222-2222</li>

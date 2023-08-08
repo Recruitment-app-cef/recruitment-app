@@ -7,6 +7,9 @@ import RequestComponent from './RequestComponent/RequestComponent';
 function AdminComponent(){
 
     const requests = [
+        <RequestComponent/>,
+        <RequestComponent/>,
+        <RequestComponent/>,
         <RequestComponent/>
     ]
 
@@ -23,6 +26,7 @@ function AdminComponent(){
             <UplineComponent/>
             <MenuComponent/>
             <section className='requestSection'>
+                <button className='buttonExit'>Exit</button>
                 <article className='searchResults'>
                     <h3>Resultados de búsqueda</h3>
                     <p>Estado: sin aceptar</p>
