@@ -89,7 +89,7 @@
     color: crimson;
     font-family: 'Montserrat', 'sans-serif';
     font-weight: 600;
-    transition: all 0.2 ease-in-out;
+    transition: all 0.2s ease-in-out;
     cursor: pointer;
 }
 

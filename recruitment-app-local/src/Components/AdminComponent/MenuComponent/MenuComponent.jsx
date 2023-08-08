@@ -9,17 +9,17 @@ function MenuComponent(){
     const options = [
         {
             id: 1,
-            title: 'Contratación:',
+            title: 'Por contratación:',
             options: ['Remunerado','Por Servicio Social','Ambas']
         },
         {
             id:2,
-            title: 'Ciclo:',
+            title: 'Por ciclo:',
             options: ['Enero - Junio 2021','Agosto - Diciembre 2021']
         },
         {
             id:3,
-            title: 'Estado:',
+            title: 'Por estado:',
             options: ['Aceptados','Rechazados', 'Todos']
         }
     ]
