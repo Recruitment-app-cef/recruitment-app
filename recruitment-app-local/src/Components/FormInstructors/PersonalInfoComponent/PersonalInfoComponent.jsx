@@ -21,6 +21,7 @@ function PersonalInfoComponent(props){
         props.onExtract(identifier, emails)
     }
 
+    //Estructura donde se obtienen todos los datos personales del instructor
     return(
         <div className='personalInfoComponent'>
             <h2>Llene el formulario para una nueva solicitud</h2>

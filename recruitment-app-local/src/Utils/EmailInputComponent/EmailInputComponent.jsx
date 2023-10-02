@@ -110,6 +110,7 @@ function EmailInputComponent(props){
             return <NoneRender/>
         }else{
             return objects.map((object) => {
+                console.log(object)
                 return <EmailComponent key={`${object}_item`} title={object} identifier={object}/>
             })
         }

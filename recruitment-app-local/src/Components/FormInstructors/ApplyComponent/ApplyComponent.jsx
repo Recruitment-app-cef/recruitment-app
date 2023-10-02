@@ -50,23 +50,34 @@ const selectComponents = [
 ]
 function ApplyComponent(props){
 
+    //función para obtener el valor de la nota de la materia seleccionada como 
+    //primera opción
     function obtainingInputValue(identifier, value){
         props.onExtract(identifier, value)
     }
 
+    //función para obtener el comentario del instructor sobre lo que espera de su contratación
     function obtainingComment(identifier,value){
         props.onExtract(identifier,value)
     }
 
+    //función para obtener todos los valores de los selectores utilizados para 
+    //seleccionar la materia que es primera opción, la materia que es segunda opción,
+    //el ciclo para el que solicita y el tipo de contratación (remunerada o por horas sociales)
     function obtainingSelectValue(identifier,value){
         console.log(identifier,value)
         props.onExtract(identifier,value)
     }
 
+    //Estructura utilizada para obtener toda la información necesaria para la contratación
+    //del estudiante.
     return(
         <div className='applyComponent'>
             <h3>Sección de información para contratación</h3>
             <p>Especifica en que materia y actividad quisieras colaborar como instructor</p>
+            {/**Con el uso de la lista dinámica se renderizan los componentes selectore
+             * en base a la información que se encuentra en el arreglo selectComponents
+             */}
             {selectComponents.map((op) => {
                 return <SelectComponent key={`${op.id}_option`} title={op.title} options={op.options}
                 onExtract={obtainingSelectValue} identifier={op.nombre}/>

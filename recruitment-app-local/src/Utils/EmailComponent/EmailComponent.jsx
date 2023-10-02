@@ -32,12 +32,18 @@ function EmailComponent(props){
         }
     }
 
+    //función utilizada para editar el email especificado
+    function editEmail(event){
+      event.preventDefault()
+      console.log(event )
+    }
+
     return(
         <div className='emailComponent' id={props.identifier}>
             <p>{props.title}</p>
             <div className='icons'>
                 <GoTrash className='trashIcon' onClick={deleteEmail}/>
-                <FiEdit3 className='editIcon'/>
+                <FiEdit3 className='editIcon' onClick={editEmail}/>
             </div>
         </div>
     )

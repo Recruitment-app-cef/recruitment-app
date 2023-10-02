@@ -11,6 +11,8 @@ import { useState } from 'react'
 
 function FormInstructors() {
 
+    //arreglo utilizado para almacenar el valor inicial 
+    //para los identificadores de los campos a llenar
     const identifiers = new Set([])
 
     //variables utilizadas para llenar el arreglo con identificadores de los campos a llenar
@@ -91,6 +93,8 @@ function FormInstructors() {
 
     //función utilizada para obtener los valores ingresados en los campos
     function obtainingValuesOfFields(identifier,value){
+        //Si el valor del campo es vacío, nulo o indefinido se debe agregar al arreglo de identificadores
+        //con su valor vacío
         if(value.length == 0 || value == null || value == undefined){
             var item = {
                 identifier: identifier,
@@ -110,6 +114,8 @@ function FormInstructors() {
                 value: value
             }
 
+            //Si el arreglo no tienen por tamaño inicial cero, el valor del campo seleccionado
+            //solo se agrega al arreglo
             if(arrayIdentifiers.size == 0){
                 setArrayIdentifiers(() => {
                     return [...arrayIdentifiers, item]
@@ -130,6 +136,9 @@ function FormInstructors() {
 
     //función utilizada para validar los datos ingresados en los campos
     const validateData = (e) => {
+        //variable utilizada para determinar si hay errores en los campos
+        let HasErrors = false
+
         e.preventDefault();
         setState(e.nativeEvent.isTrusted)
         const clickState = e.nativeEvent.isTrusted
@@ -138,12 +147,7 @@ function FormInstructors() {
         //si están vacíos se debe arrojar una alerta y regresar el estado del botón a false
 
         arrayIdentifiers.forEach( (item) => {
-            console.log("entra al bucle")
-            console.log(item.identifier)
-            console.log(item.value.length)
-            console.log(clickState)
             if(item.value.length == 0  && clickState == true){
-                console.log(item.identifier)
                 swal.fire({
                     icon: 'error',
                     title: 'Oops...',
@@ -151,14 +155,16 @@ function FormInstructors() {
                     footer: 'Ingresa un dato válido'
                 })
                 setState(false)
+                HasErrors = true
             }
         })
-        saveData()
+        if (HasErrors == false){
+            saveData()
+        }
     }
     
     //función que se acciona al hacer click sobre el botón de guardar datos
     const saveData = () => {
-        console.log(state)
         //se obtiene el estado del botón de guardar datos, si se hace click se cambia 
         //el estado a true, si no se hace click se cambia a false
         swal.fire({
@@ -178,19 +184,20 @@ function FormInstructors() {
                     'success'
                     )
                     setState(true)
+                    console.log(arrayIdentifiers)
                 }else{
                     setState(false)
-                    console.log(arrayIdentifiers)
                     return
                 }
             })
-            console.log(state)  
     }
 
+    //Estructura del formulario de inscripción de instructores
     return(
         <div className='formInscriptionsInstructors'>
             <IoArrowBackCircleOutline className='arrowIcon' onClick={onClickButton}/>
             <UplineComponent/>
+            {/**El componente de imagen es usado para que el instructor suba una foto de sí mismo */}
             <ImageComponent/>
             <section className='informationSection'>
                 <PersonalInfoComponent onClickState={state} onExtract={obtainingValuesOfFields} />  

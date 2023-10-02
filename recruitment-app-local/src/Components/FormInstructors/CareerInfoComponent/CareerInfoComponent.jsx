@@ -7,26 +7,35 @@ import SubjectInputComponent from './SubjectInputComponent/SubjectInputComponent
 
 function CareerInfoComponent(props){
 
+    //función para obtener el total de materias aprobadas del alumno
     function obtainingSubjects(identifier,value){
         props.onExtract(identifier, value)
     }
 
+    //función para obtener el comentario del instructor
     function obtainingComment(identifier, value){
         props.onExtract(identifier,value)
     }
 
+    //función para obtener el valor de la carrera que está cursando el estudiante 
+    //y el CUM actual
     function obtainingInputValue(identifier,value){
         props.onExtract(identifier, value)
     }
 
+    //función para obtener el nivel de la carrera que está cursando el estudiante
     function obtainingSelectValue(identifier, value){
         props.onExtract(identifier, value)
     }
 
+    //función para obtener las materias que está cursando el estudiante en el nivel
+    //de carrera que esta cursando
     function obtainingNextSubjects(identifier, value){
         props.onExtract(identifier, value)
     }
 
+    //estructura utilizada para obtener todos los valores actuales de la carrera
+    //que está cursando el estudiante
     return(
         <div className='careerInfoComponent'>
             <h3>Sección de información académica</h3>
