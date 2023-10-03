@@ -9,7 +9,7 @@ import CareerInfoComponent from './CareerInfoComponent/CareerInfoComponent'
 import ApplyComponent from './ApplyComponent/ApplyComponent'
 import { useState } from 'react'
 
-function FormInstructors() {
+function FormInstructors(props) {
 
     //arreglo utilizado para almacenar el valor inicial 
     //para los identificadores de los campos a llenar
@@ -36,60 +36,6 @@ function FormInstructors() {
             }
           })
     }
-
-    /* function obtainingImage(identifier, value){
-        if(arrayIdentifiers.length == 0){
-            var inputItem = {
-                identifier: identifier,
-                value: value
-            }
-            setArrayIdentifiers(() => {
-                return [...arrayIdentifiers, inputItem]
-            })
-        }else if(arrayIdentifiers.length != 0){
-            setArrayIdentifiers(() => {
-                var filterArray = arrayIdentifiers.filter( (item) => {
-                    if(item.identifier != identifier){
-                        return item
-                    }
-                })
-                var inputItem = {
-                    identifier: identifier,
-                    value: value
-                } 
-                return [...filterArray, inputItem]
-            })
-        }
-    }
-
-    function obtainingValue(identifier, value){
-
-        if(arrayIdentifiers.length == 0){
-            var inputItem = {
-                identifier: identifier,
-                value: value
-            }
-            setArrayIdentifiers(() => {
-                return [...arrayIdentifiers, inputItem]
-            })
-        }
-        //Este arreglo sirve para identificar los campos sobre los que han sido ingresados valores
-        //y así poder validarlos en caso de haber algún error sobre ellos
-        else if(arrayIdentifiers.length != 0){
-            setArrayIdentifiers(() => {
-                var filterArray = arrayIdentifiers.filter( (item) => {
-                    if(item.identifier != identifier){
-                        return item
-                    }
-                })
-                var inputItem = {
-                    identifier: identifier,
-                    value: value
-                } 
-                return [...filterArray, inputItem]
-            })
-        }
-    } */
 
     //función utilizada para obtener los valores ingresados en los campos
     function obtainingValuesOfFields(identifier,value){
@@ -159,6 +105,7 @@ function FormInstructors() {
             }
         })
         if (HasErrors == false){
+            //obteniendo la fecha actual para anidarla a la solicitud hecha por el estudiante            
             saveData()
         }
     }
@@ -184,7 +131,14 @@ function FormInstructors() {
                     'success'
                     )
                     setState(true)
-                    console.log(arrayIdentifiers)
+                    var date = Date.now()
+                    var today = new Date(date)    
+                    var objectDate = {
+                        identifier : "date",
+                        value :  today.toLocaleDateString()
+                    }
+                    props.onExtract(arrayIdentifiers, objectDate)
+                    navigate("/recruitment/inscription/formRequest")
                 }else{
                     setState(false)
                     return

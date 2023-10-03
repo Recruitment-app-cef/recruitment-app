@@ -3,6 +3,8 @@ import './AdminComponent.css'
 import MenuComponent from './MenuComponent/MenuComponent';
 import NoneRender from '../../Utils/NoneRender/NoneRender'
 import RequestComponent from './RequestComponent/RequestComponent';
+import { useNavigate } from 'react-router-dom';
+import swal from 'sweetalert2';
 
 function AdminComponent(){
 
@@ -13,6 +15,8 @@ function AdminComponent(){
         <RequestComponent/>
     ]
 
+    const navigate = useNavigate();
+
     function noneRenderRequest(){
         if(requests.length == 0){
             return <NoneRender/>
@@ -21,12 +25,26 @@ function AdminComponent(){
         }   
     }
 
+    function returnPage(){
+        swal.fire({
+            title: 'Volver a la página anterior?',
+            showDenyButton: true,
+            confirmButtonText: 'Regresar',
+            denyButtonText: `No`,
+          }).then((result) => {
+            /* Read more about isConfirmed, isDenied below */
+            if (result.isConfirmed) {
+                navigate("/recruitment");
+            }
+          })
+    }
+
     return(
         <div className='adminComponent'>
             <UplineComponent/>
             <MenuComponent/>
             <section className='requestSection'>
-                <button className='buttonExit'>Salir</button>
+                <button className='buttonExit' onClick={returnPage}>Salir</button>
                 <article className='searchResults'>
                     <h3>Resultados de búsqueda</h3>
                     <p>Estado: sin aceptar</p>

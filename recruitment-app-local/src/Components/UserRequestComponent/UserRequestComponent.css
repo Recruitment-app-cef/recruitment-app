@@ -1,0 +1,62 @@
+.userRequestComponent{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0rem 0rem 1rem;
+    gap: 1rem;
+}
+
+.statusSection{
+    font-size: 0.9rem;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    width: 500px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-content: center;
+}
+
+@media(max-width:500px){
+    .statusSection{
+        font-size: 0.8rem;
+        width: 250px;
+    }
+}
+
+.arrowIcon{
+    position:absolute;
+    color: rgb(0, 116, 17);
+    top:30px;
+    right:20px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.arrowIcon:hover{
+    transform: scale(1.1);
+    transition:all 0.2s;
+}
+
+
+a{
+    color: crimson;
+    padding: 0.1rem;
+}
+
+.userRequestComponent > .requestComponent{
+    width: 50%;
+}
+
+.userRequestComponent > .requestComponent > .optionButtons  {
+    opacity: 0%;
+}
+
+@media(max-width:1028px){
+    .userRequestComponent > .requestComponent{
+        width: 70%;
+    }
+}
