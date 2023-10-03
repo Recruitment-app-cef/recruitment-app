@@ -20,12 +20,27 @@ function RequestComponent(props){
                 return item    
         }
     })
-    console.log(studentInfoData)
+
+    var academicStudentData = data.filter((item)=> {
+        switch(item.identifier){
+            case 'carrera':
+            case 'cum':
+            case 'nivelEstudio':
+            case 'teléfono fijo':
+            case 'teléfono móvil':
+            case 'email':
+            case 'materias próximas':
+            case 'materias aprobadas':
+            case 'experiencia':
+            case 'comentario':
+                return item
+        }
+    }) 
 
     return(
         <div className='requestComponent'>
             <UserInformation dataObject={studentInfoData}/>
-            <AcademyInformation/>
+            <AcademyInformation academicData={academicStudentData}/>
             <section className='optionButtons'>
                 <AiOutlineCheck className='checkButton'/>
                 <BsPrinter className='printButton'/>

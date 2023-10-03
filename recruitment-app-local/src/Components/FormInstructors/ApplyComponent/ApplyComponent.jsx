@@ -2,7 +2,7 @@ import SelectComponent from '../../../Utils/SelectComponent/SelectComponent'
 import InputComponent from '../../../Utils/InputComponent/InputComponent'
 import './ApplyComponent.css'
 import CommentComponent from '../../../Utils/CommentComponent/CommentComponent'
-import { useState } from 'react'
+
 
 const selectComponents = [
     {
