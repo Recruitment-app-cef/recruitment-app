@@ -11,9 +11,19 @@ import { useState } from 'react'
 
 function FormInstructors(props) {
 
+
     //arreglo utilizado para almacenar el valor inicial 
     //para los identificadores de los campos a llenar
-    const identifiers = new Set([])
+    var identifiers = [{'identifier':'image','value':''} ,{'identifier':'carne','value':''},
+        {'identifier':'nombres','value':' '},{'identifier':'apellidos','value':' '},
+        {'identifier':'telefonoFijo','value':' '},{'identifier':'telefonoMovil', 'value': ' '},
+        {'identifier':'email', 'value': ' '},{'identifier':'carrera', 'value': ' '},
+        {'identifier':'nivelEstudio', 'value': ' '}, {'identifier':'materiasAprobadas', 'value': ' '},
+        {'identifier':'cum', 'value': ' '},{'identifier':'materiasProximas', 'value': ' '},
+        {'identifier':'experiencia', 'value': ' '},{'identifier':'primeraOpcion', 'value': ' '},
+        {'identifier':'segundaOpcion', 'value': ' '},{'identifier':'ciclo', 'value': ' '},
+        {'identifier':'tipoContratacion', 'value': ' '},{'identifier':'nota', 'value': ' '},
+        {'identifier':'comentario', 'value': ' '}]
 
     //variables utilizadas para llenar el arreglo con identificadores de los campos a llenar
     //y luego validarlos
@@ -25,8 +35,20 @@ function FormInstructors(props) {
 
     //función para el botón de retorno de la página
     const onClickButton = () => {
-        swal.fire({
-            title: 'Volver a la página anterior?',
+        if(arrayIdentifiers.length != 0){
+            swal.fire({   
+                title: '¿Volver a la página anterior?. Tiene información sin guardar',
+                showDenyButton: true,
+                confirmButtonText: 'Regresar',
+                denyButtonText: `No`,
+              }).then((result) => {
+                if (result.isConfirmed) {
+                    navigate("/recruitment");
+                }
+              })            
+        }
+        swal.fire({   
+            title: '¿Volver a la página anterior?',
             showDenyButton: true,
             confirmButtonText: 'Regresar',
             denyButtonText: `No`,
@@ -44,7 +66,7 @@ function FormInstructors(props) {
         if(value.length == 0 || value == null || value == undefined){
             var item = {
                 identifier: identifier,
-                value: ''
+                value: ' '
             }
             setArrayIdentifiers(() => {
                 var filterArray = arrayIdentifiers.filter( (item) => {
@@ -59,8 +81,9 @@ function FormInstructors(props) {
                 identifier: identifier,
                 value: value
             }
-
-            //Si el arreglo no tienen por tamaño inicial cero, el valor del campo seleccionado
+            console.log(item)
+            console.log(arrayIdentifiers)
+            //Si el arreglo no tiene por tamaño inicial cero, el valor del campo seleccionado
             //solo se agrega al arreglo
             if(arrayIdentifiers.size == 0){
                 setArrayIdentifiers(() => {
@@ -72,9 +95,10 @@ function FormInstructors(props) {
                     var filterArray = arrayIdentifiers.filter( (item) => {
                         if(item.identifier != identifier){
                             return item
+                            
                         }
                     })
-                    return [...filterArray, item]
+                    return [...filterArray, item] 
                 })
             }
         }
@@ -92,9 +116,9 @@ function FormInstructors(props) {
         //campo y se valida que no estén vacíos sus valores y que no sean nulos
         //si están vacíos se debe arrojar una alerta y regresar el estado del botón a false
 
-        arrayIdentifiers.forEach( (item) => {
-            if(item.value.length == 0  && clickState == true){
-                swal.fire({
+        arrayIdentifiers.forEach((item) => {
+            if(item.value == " "  && clickState == true){ 
+                    swal.fire({
                     icon: 'error',
                     title: 'Oops...',
                     text: `No puedes dejar vacío el campo "${item.identifier}"`,

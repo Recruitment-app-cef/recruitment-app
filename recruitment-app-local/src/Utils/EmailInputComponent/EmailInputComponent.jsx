@@ -42,63 +42,6 @@ function EmailInputComponent(props){
         setEmail('')
         props.onExtract(props.nameInput, newEmails)
 
-        /* if(email.length == 0 || email == null || email == undefined){
-            Swal.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: 'No puedes dejar el campo vacío!',
-                footer: 'Ingresa un valor válido'
-              })
-        }else{
-            //con esta función se actualiza el arreglo añadiendo los nuevos valores encontrados
-            //esto es para renderizar los emails en el cuadro de la lista de emails
-            if(objects.length == 0){
-                setObjects(() => {
-                    return [email, ...objects]
-                })
-
-                if(emailList.length == 0){
-                    setEmailList(() => {
-                        return [email, ...emailList]
-                    })
-                }else{
-                    setEmailList(() => {
-                        var filterEmails = emailList.filter((mail) => {
-                            if(mail != email){
-                                return mail
-                            }
-                        })
-                        return [email, ...filterEmails]
-                    })
-                }
-            }else{
-                setObjects((objects) => {
-                    var filterArray = objects.filter((object) => {
-                        if(object != email){
-                            return object
-                        }
-                    })
-                    return [email, ...filterArray]
-                })
-
-                if(emailList.length == 0){
-                    setEmailList(() => {
-                        return [email, ...emailList]
-                    })
-                }else{
-                    setEmailList(() => {
-                        var filterEmails = emailList.filter((mail) => {
-                            if(mail != email){
-                                return mail
-                            }
-                        })
-                        return [email, ...filterEmails]
-                    })
-                }
-            }
-
-            setEmail('')        
-        } */
         
     }
 
@@ -110,7 +53,6 @@ function EmailInputComponent(props){
             return <NoneRender/>
         }else{
             return objects.map((object) => {
-                console.log(object)
                 return <EmailComponent key={`${object}_item`} title={object} identifier={object}/>
             })
         }

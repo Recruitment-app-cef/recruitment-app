@@ -65,7 +65,6 @@ function ApplyComponent(props){
     //seleccionar la materia que es primera opción, la materia que es segunda opción,
     //el ciclo para el que solicita y el tipo de contratación (remunerada o por horas sociales)
     function obtainingSelectValue(identifier,value){
-        console.log(identifier,value)
         props.onExtract(identifier,value)
     }
 

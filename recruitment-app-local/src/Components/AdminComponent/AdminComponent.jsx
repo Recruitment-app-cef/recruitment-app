@@ -9,10 +9,6 @@ import swal from 'sweetalert2';
 function AdminComponent(){
 
     const requests = [
-        <RequestComponent/>,
-        <RequestComponent/>,
-        <RequestComponent/>,
-        <RequestComponent/>
     ]
 
     const navigate = useNavigate();

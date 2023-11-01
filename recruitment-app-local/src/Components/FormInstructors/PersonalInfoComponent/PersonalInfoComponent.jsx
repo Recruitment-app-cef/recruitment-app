@@ -33,15 +33,15 @@ function PersonalInfoComponent(props){
             <ImageInputComponent onExtract={obtainingImageValue} state={props.onClickState}/>
             <section className='inputsData'>
                 <InputComponent title="Carné:" placeholder="Ej: 00009919" 
-                onExtract={obtainingInputValue} nameInput="carné" state={props.onClickState}/>
+                onExtract={obtainingInputValue} nameInput="carne" state={props.onClickState}/>
                 <InputComponent title="Nombre(s):" placeholder="Ej: Juan Alexander" 
                 onExtract={obtainingInputValue} nameInput="nombres" state={props.onClickState}/>
                 <InputComponent title="Apellido(s):" placeholder="Ej: Pérez Pérez" 
                 onExtract={obtainingInputValue} nameInput="apellidos" state={props.onClickState}/>
                 <InputComponent title="Teléfono fijo:" placeholder="Ej: 2222-3333" 
-                onExtract={obtainingInputValue} nameInput="teléfono fijo" state={props.onClickState}/>
+                onExtract={obtainingInputValue} nameInput="telefonoFijo" state={props.onClickState}/>
                 <InputComponent title="Teléfono móvil:" placeholder="Ej: 7787-8778" 
-                onExtract={obtainingInputValue} nameInput="teléfono móvil" state={props.onClickState}/>
+                onExtract={obtainingInputValue} nameInput="telefonoMovil" state={props.onClickState}/>
                 <EmailInputComponent title="Email(s):" placeholder="Ej: username@email.com"
                 nameInput="email" state={props.onClickState} onExtract={obtainingEmails}/>
             </section>

@@ -26,7 +26,7 @@
 }
 
 .solicitantComponent > p:nth-child(2){
-    font-size: 9pt;
+    font-size: 8pt;
     font-style: italic;
     opacity: 75%;
     margin: 10px 0px;
@@ -39,7 +39,7 @@
     }
 }
 
-.solicitantComponent > p:nth-child(5){
+.solicitantComponent > p:nth-child(6){
     font-size: 9pt;
     margin: 10px 0px 5px 0px;
     width: 500px;
@@ -64,7 +64,7 @@
     border-radius: 5px;
     border: 1px solid rgb(176, 176, 176);
     padding: 5px;
-    margin: 15px 0px;
+    margin: 10px 0px;
     font-size: 9pt;
     font-style: italic;
 }   

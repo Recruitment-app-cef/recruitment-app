@@ -8,7 +8,7 @@ function ImageInputComponent(props){
         if(props.state == true){
             event.target.value = ''
         }else{
-            props.onExtract(event.target.value)        
+            props.onExtract(event.target.value)    
         }
     }
 

@@ -9,7 +9,8 @@ function RequestComponent(props){
     var data = props.requestData
     var studentInfoData = data.filter((item) => {
         switch(item.identifier){
-            case 'carné':
+            case 'image':
+            case 'carne':
             case 'nombres':
             case 'apellidos':
             case 'primeraOpcion':
@@ -26,11 +27,11 @@ function RequestComponent(props){
             case 'carrera':
             case 'cum':
             case 'nivelEstudio':
-            case 'teléfono fijo':
-            case 'teléfono móvil':
+            case 'telefonoFijo':
+            case 'telefonoMovil':
             case 'email':
-            case 'materias próximas':
-            case 'materias aprobadas':
+            case 'materiasProximas':
+            case 'materiasAprobadas':
             case 'experiencia':
             case 'comentario':
                 return item

@@ -46,7 +46,7 @@ function CareerInfoComponent(props){
             <InputComponent title="CUM:" placeholder="Ej: 7.33" nameInput="cum" 
                 state={props.onClickState} onExtract={obtainingInputValue}/>
             <EmailInputComponent title="Materias próximas:" placeholder="Ej: Fundamentos de programación"
-                nameInput="materias próximas" state={props.onClickState} onExtract={obtainingNextSubjects}/>
+                nameInput="materiasProximas" state={props.onClickState} onExtract={obtainingNextSubjects}/>
             <CommentComponent title="Liste algunas experiencias como instructor
                 (especificando las materias en que ha colaborado), si las hubiese:"
                 onExtract={obtainingComment} nameInput="experiencia"/>

@@ -9,7 +9,11 @@
 .emailComponent > p{
     margin: 8px 0;
     font-size: 10pt;
+    display: flex;
     text-align: left;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
 }
 
 @media(max-width: 768px){

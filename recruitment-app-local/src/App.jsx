@@ -16,6 +16,7 @@ function App() {
   function onExtractDataToRequest(data){
     //seteando en la variable de estado la data encontrada
     setStudentRequestData(data)
+    console.log(data)
    }
 
   return (
