@@ -1,3 +1,0 @@
-conexión a la base de datos
-docker run --name postgres-recruitment -e POSTGRES_USER=recruitment-marcos -e POSTGRES_PASSWORD=recruitment-marcos 
--e POSTGRES_DB=recruitment-root -e POSTGRES_DB=master -p 5432:5432 -d postgres
