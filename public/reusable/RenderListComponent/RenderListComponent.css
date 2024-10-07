@@ -1,0 +1,48 @@
+.listDiv{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: start;
+    align-items: start;
+    gap:0.3rem;
+    padding: 0;
+    margin:0;
+}
+
+.listDiv > p{
+    margin:0;
+    color:black;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10pt;
+    font-weight: 700;
+}
+
+@media(max-width:515px){
+    .listDiv > p{
+        font-size: 8.5pt;
+    }
+}
+
+.listComponent{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: start;
+    align-items: start;
+    gap:0.3rem;
+    margin:0;
+    padding: 0 0 0 0.5rem;
+}
+
+.listComponent > li{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9.5pt;
+    color: black;
+    display: flex;
+    flex-flow: row wrap;
+    font-weight: 500;
+}
+
+@media(max-width:515px){
+    .listComponent > li{
+        font-size: 8.5pt;
+    }
+}

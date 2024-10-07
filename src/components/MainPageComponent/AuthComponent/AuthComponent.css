@@ -1,0 +1,88 @@
+.authComponent{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 1rem;
+    width: 700px;
+    height: 300px;
+    box-shadow: 0.5px 0.5px 5px gray;
+    border-radius: 10px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+@media(max-width:768px){
+    .authComponent{
+        width: 350px;
+        height: 420px;
+        display: flex;
+        flex-flow: column nowrap;
+        gap: 1rem;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.authComponent > p{
+    margin: 0;
+}
+
+.authComponent > p:first-child{
+    font-size: 1.2rem;
+    font-family: 'Roboto', sans-serif;
+    font-weight: light;
+}
+
+.authComponent > p:last-child{
+    font-size: 0.8rem;
+    font-family: 'Roboto', sans-serif;
+    font-weight: light;
+    color:gray;
+}
+
+.authComponent > p:nth-child(2){
+    width: 500px;
+    font-size: 0.8rem;
+    font-family: 'Roboto', sans-serif;
+    font-weight: light;
+    color:gray;
+    font-style:italic;
+}
+
+@media(max-width:768px){
+    .authComponent > p:nth-child(2){
+        width: 300px;
+        font-size: 0.8rem;
+        font-family: 'Roboto', sans-serif;
+        font-weight: light;
+        color:gray;
+        font-style:italic;
+    }   
+}
+
+.saveButton{
+    width: 100px;
+    height: 35px;
+    margin: 5px 0;
+    border-radius: 5px;
+    font-size: 12pt;
+    border: none;
+    background: #306ba7;
+    color: white;
+    cursor: pointer;
+    font-family: 'PT Serif', serif;
+    transition: all ease-in-out 0.3s;
+}
+
+.saveButton:hover{
+    background: #1d4a7a;
+    transition: all ease-in-out 0.3s;
+}
+
+.saveButton:active{
+    transform: scale(0.95);
+}

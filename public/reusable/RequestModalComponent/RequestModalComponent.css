@@ -1,0 +1,56 @@
+.requestModalComponent{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    padding:1rem;
+    display: none;
+    position: absolute;
+    gap: 1rem;
+}
+
+.requestModalComponent.open{
+    display: flex;
+}
+
+.requestModalComponent > h3{
+    color: black;
+    font-size: 5rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    rotate: -20deg;
+    font-family: 'Roboto';
+    opacity: 30%;
+}
+
+.backgroundModalComponent{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: rgb(125, 125, 125);
+    opacity: 20%;
+
+}
+
+.requestModalComponent.open > section{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0px;
+    padding: 0.1rem 0;
+}
+
+.requestModalComponent.open > section > p{
+    color: rgb(255, 0, 0);
+    font-size: 1rem;
+    font-weight: 400;
+    font-family: 'Roboto';
+    opacity: 90%;
+    margin: 0;
+}

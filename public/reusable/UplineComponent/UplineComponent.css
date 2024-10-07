@@ -1,0 +1,12 @@
+.greenUpline{
+    background: #008001;
+    height: 20px;
+    width: 100%;
+}
+
+@media(max-width: 768px){
+    .greenUpline{
+        height: 20px;
+        width: 100%;
+    }
+}

@@ -1,0 +1,12 @@
+input{
+    width: 200px;
+    height: 35px;
+    margin: 5px 0px;
+    padding: 0 0 0 5px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 9pt;
+    font-style: italic;
+    border: 1px solid #a8a8a8;
+    border-radius: 3px;
+}
+

@@ -1,0 +1,22 @@
+.saveButton{
+    width: 100px;
+    height: 35px;
+    margin: 5px 0;
+    border-radius: 5px;
+    font-size: 12pt;
+    border: none;
+    background: #306ba7;
+    color: white;
+    cursor: pointer;
+    font-family: 'PT Serif', serif;
+    transition: all ease-in-out 0.3s;
+}
+
+.saveButton:hover{
+    background: #1d4a7a;
+    transition: all ease-in-out 0.3s;
+}
+
+.saveButton:active{
+    transform: scale(0.95);
+}

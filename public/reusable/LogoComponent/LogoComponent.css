@@ -1,0 +1,70 @@
+.componentOfLogoCEF{
+    width: 700px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0px 0px 0px;
+    padding: 20px 0px 20px 0px;
+    border-radius: 10px;
+    box-shadow: 0.5px 0.5px 5px rgb(176, 176, 176);
+}
+
+@media(max-width:768px){
+    .componentOfLogoCEF{
+        width: 350px;
+    }
+}
+
+.componentOfLogoCEF > p{
+    margin: 5px 0px;
+    font-family: 'Lugrasimo', cursive;
+    font-size: 20px;
+    color: rgb(0, 116, 17);
+}
+
+.componentOfLogoCEF > p:nth-child(2){
+    font-size: 24px;
+}
+
+@media(max-width: 768px){
+    .componentOfLogoCEF > p:nth-child(2){
+        font-size: 16px;
+    }
+
+    .componentOfLogoCEF > p:nth-child(3){
+        font-size: 14px;
+    }
+}
+
+.componentOfLogoCEF > p:nth-child(3){
+    font-weight: bolder;
+}
+
+.imgSection{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.imgSection > img{
+    margin: 0px 20px;
+}
+
+.imgSection > img:nth-child(2){
+    width: 100px;
+    height: 100px;
+}
+
+@media(max-width:768px){
+    .imgSection > img:nth-child(1){
+        width: 70px;
+        height: 70px;
+    }
+
+    .imgSection > img:nth-child(2){
+        width: 60px;
+        height: 60px;
+    }
+}

@@ -1,0 +1,50 @@
+.selectFieldComponent{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Montserrat';
+    font-weight: 600;
+    width: 375px;
+}
+
+@media(max-width:768px){
+    .selectFieldComponent{
+        width: 100%;
+    }
+}
+
+.selectFieldComponent > article{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: start;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.selectFieldComponent > article > label{
+    font-size: 10pt;
+}
+
+@media(max-width:515px){
+    .selectFieldComponent > article > label{
+        font-size: 9pt;
+    }
+}
+
+.selectFieldComponent > select{
+    width: 200px;
+    height: 30px;
+    border:1px solid rgb(166, 166, 166);
+    border-radius: 2px;
+    color: rgb(126, 126, 126);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9pt;
+    font-weight: 600;
+}
+
+@media(max-width:515px){
+    .selectFieldComponent > select{
+        width: 150px;
+    }
+}

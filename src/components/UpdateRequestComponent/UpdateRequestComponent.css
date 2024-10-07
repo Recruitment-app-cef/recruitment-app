@@ -1,0 +1,92 @@
+.updateRequestComponent {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: start;
+    align-items: center;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+    height: auto;
+    width: 100%;
+}
+
+.updateRequestComponent>h2 {
+    font-size: 15pt;
+    font-weight: 500;
+    font-family: 'Montserrat', sans-serif;
+    margin: 5px 0;
+}
+
+@media(max-width: 768px) {
+    .updateRequestComponent > h2 {
+        font-size: 13pt;
+    }
+}
+
+@media(max-width: 515px){
+    .updateRequestComponent > h2{
+        font-size: 11pt;
+    }
+}
+
+.instructorInformationSection{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: start;
+    align-items: start;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    border: 1px solid rgb(215, 215, 215);
+    border-radius: 10px;
+    box-shadow: 0.5px 0.5px 5px rgb(176, 176, 176);
+    height: auto;
+    width: 700px;
+    margin: 0 0 1rem 0;
+}
+
+.instructorInformationSection > p{
+   font-size: 10pt;
+   font-family: Montserrat;
+   font-weight: 400;
+   color: rgb(92, 92, 92); 
+   width: 100%;
+   text-align: center;
+}
+
+.instructorInformationSection > .emailField{
+    padding: 0;
+}
+
+.instructorInformationSection > .comment{
+    height: 100px;
+    width: 400px;
+}
+
+.updateButton{
+    width: 100px;
+    height: 35px;
+    margin: 5px 0;
+    border-radius: 5px;
+    font-size: 12pt;
+    border: none;
+    background: #306ba7;
+    color: white;
+    cursor: pointer;
+    font-family: 'PT Serif', serif;
+    transition: all ease-in-out 0.1s;
+}
+
+.updateButton:hover{
+    background: #1d4a7a;
+    transition: all ease-in-out 0.1s;
+}
+
+.updateButton:active{
+    transform: scale(0.95);
+}
+
+.instructorInformationSection > .comment{
+    font-family: Montserrat;
+    padding: 0.5rem 0.3rem;
+    color: green;
+}

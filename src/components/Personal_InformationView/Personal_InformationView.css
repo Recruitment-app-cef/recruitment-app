@@ -1,0 +1,261 @@
+.personalInformationContainer{
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    height: 100%;
+    gap: 0.5rem;
+    font-family: 'Roboto', sans-serif;
+    border-bottom: 1px solid rgb(173, 173, 173);
+}
+
+.personalInformationContainer > h1{
+    font-weight: 600;
+    margin: 5px 0px;
+    font-family: 'Montserrat';
+}
+
+@media(max-width:768px){
+    .personalInformationContainer > h1{
+        font-size: 14pt;
+    }
+}
+
+.iconInformation{
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    gap:0.5rem;
+}
+
+.iconInformation > p{
+    font-family: 'Montserrat';
+    color:rgb(118, 118, 118);
+    font-size:10pt;
+}
+
+@media(max-width:768px){
+    .iconInformation > p{
+        font-size: 9pt;
+        width: 100%;
+    }
+}
+
+.iconAlert{
+    color: red;
+}
+
+.personalInformationContainer > h3{
+    margin: 5px 0px;
+    font-weight: 500;
+    font-family: 'Montserrat';
+    font-weight: 600;
+}
+
+@media(max-width:768px){
+    .personalInformationContainer > h3{
+        font-size: 12pt;
+    }
+}
+
+.imageInputSection{
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    gap:0.25rem;
+}
+
+.imageInputSection > div{
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    gap:0.5rem;
+    font-family: 'Montserrat';
+}
+
+@media(max-width:768px){
+    .imageInputSection > div > label{
+        font-size: 10pt;
+    }
+}
+
+.imageInputSection > p{
+    font-family: 'Montserrat';
+    color:rgb(138, 138, 138);
+    width: 500px;
+    font-size:9pt;
+}
+
+@media(max-width:768px){
+    .imageInputSection > p{
+        font-size: 8pt;
+        width: 400px;
+    }
+}
+
+
+@media(max-width:515px){
+    .imageInputSection > p{
+        width: 300px;        
+    }
+}
+
+
+.imageInputSection > input{
+    width: 500px;
+    padding:7px;
+}
+
+@media(max-width:768px){
+    .imageInputSection > input{
+        width: 300px;
+    }
+}
+
+.fieldsContainer{
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: start;
+    justify-content: center;
+    gap:0.5rem;
+    padding: 0.5rem 2rem 0.5rem;
+}
+
+@media(max-width:768px){
+    .fieldsContainer{
+        padding:0.5rem 0.5rem;
+    }
+}
+
+.emailField{
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: start;
+    justify-content: center;
+    gap:0.5rem;
+    padding: 0.5rem 2rem 0.5rem;
+}
+
+@media(max-width:768px){
+    .emailField{
+        padding:0.5rem 0.5rem;
+        display: flex;
+        flex-flow:row nowrap;
+    }
+}
+
+.emailInput{
+    width: 500px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: start;
+    align-items: center;
+    gap:0.7rem;
+}
+
+@media(max-width:768px){
+    .emailInput{
+        width: 200px;
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        justify-content: center;
+        gap:0.5rem;
+    }
+}
+
+@media(max-width:515px){
+    .emailInput{
+        width: 125px;
+    }
+}
+
+.emailInput > section{
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    gap:0.2rem;
+}
+
+.emailInput > section > label{
+    font-family: 'Montserrat';
+    font-weight: 600;
+    font-size:10pt;
+}
+
+@media(max-width:515px){
+    .emailInput > section > label{
+        font-size: 9pt;
+    }
+}
+
+.emailInput > input{
+    height: 30px;
+}
+
+@media(max-width:515px){
+    .emailInput > input{
+        width: 125px;
+    }
+}
+
+.emailInput > button{
+    height: 30px;
+    width: 60px;
+    background: #008001;
+    border: none;
+    border-radius: 3px;
+    color: white;
+    cursor:pointer;
+    transition:all 0.3s ease-in-out;
+}
+
+@media(max-width:768px){
+    .emailInput > button{
+        width:100%;
+    }
+}
+
+.emailInput > button:hover{
+    background: white;
+    color: #008001;
+    border:1px solid #008001;
+    transition: all 0.3s ease-in-out;
+}
+
+.emailInput > button:active{
+    background: #015901;
+    color: white;
+}
+
+.emailsList{
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: start;
+    justify-content: start;
+    gap:0.5rem;
+    width:350px;
+    height:100px;
+    border:1px solid rgb(186, 186, 186);
+    border-radius: 3px;
+    overflow: scroll;
+    padding: 0.5rem;
+}
+
+@media(max-width:768px){
+    .emailsList{
+        height: 100%;
+    }
+}
+
+.emailsList::-webkit-scrollbar{
+    display:none;
+}   

@@ -1,0 +1,23 @@
+.selectFilterComponent{
+    width: 300px;
+}
+
+.selectFilterComponent select{
+    width: 100%;
+    height: 32px;
+    border: 1px solid #d3d3d3;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 10pt;
+    font-family: 'Montserrat';
+    color: #5f5f5f;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.selectFilterComponent p{
+    color:black;
+    font-family: 'Montserrat';
+    font-size: 10pt;
+    font-weight: 500;
+}

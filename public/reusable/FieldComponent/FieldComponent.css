@@ -1,0 +1,45 @@
+.fieldComponent{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Montserrat';
+    font-weight: 600;
+    width: 375px;
+}
+
+@media(max-width:768px){
+    .fieldComponent{
+        width: 100%;
+    }
+}
+
+.fieldComponent > article{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: start;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.fieldComponent > article > label{
+    font-size: 10pt;
+}
+
+@media(max-width:515px){
+    .fieldComponent > article > label{
+        font-size: 9pt;
+    }
+}
+
+.fieldComponent > input{
+    width: 200px;
+    height: 30px;
+    color:rgb(9, 152, 38)
+}
+
+@media(max-width:515px){
+    .fieldComponent > input{
+        width: 150px;
+    }
+}
