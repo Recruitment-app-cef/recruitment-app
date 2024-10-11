@@ -11,7 +11,7 @@ import { useParams } from 'react-router-dom'
 import api from '../../services/services'
 import Swal from 'sweetalert2'
 import myQuery from '../../services/Query'
-
+import jsPDF from 'jspdf';
 
 function AdminPageComponent() {
 
@@ -260,6 +260,124 @@ function AdminPageComponent() {
         setValue(event)
     }
 
+    const generatePDF = () => {
+        const doc = new jsPDF();
+        const maxWidth = 190; // Ancho máximo para el texto
+        const lineHeight = 10; // Altura entre líneas de texto
+        let currentY = 50; // Posición inicial en Y
+
+        // Configurar encabezado general del documento
+        doc.setFont('Montserrat', 'bold');
+        doc.setFontSize(16);
+        doc.addImage('../../../src/assets/images/logo-uca.png', 'png', 10, 10, 30, 40, 'logo-uca', 'MEDIUM');
+        doc.text('Universidad Centroamericana "José Simeón Cañas"', 55, 20);
+        doc.text('Departamento de Ciencias Energéticas y Fluídicas', 55, 30);
+        doc.text('Solicitud de Instructoría', 80, 40);
+
+        currentY += 10;
+
+        // Iterar sobre todas las solicitudes
+        requests.forEach((userData, index) => {
+
+            const isRemunerated = (es_remunerado) => es_remunerado === '0' ? 'Por horas sociales' : 'Remunerado';
+
+            const academicLevels = {
+                1: 'Primer Ciclo',
+                2: 'Segundo Ciclo',
+                3: 'Tercer Ciclo',
+                4: 'Cuarto Ciclo',
+                5: 'Quinto Ciclo',
+                6: 'Sexto Ciclo',
+                7: 'Séptimo Ciclo',
+                8: 'Octavo Ciclo',
+                9: 'Noveno Ciclo',
+                10: 'Décimo Ciclo'
+            };
+
+            const academicLevel = (level) => academicLevels[level] || 'Nivel no especificado';
+
+            const experienceInfo = (experience) => experience || 'sin experiencia brindada por el usuario';
+            const commentInfo = (comments) => comments && comments !== 'sin comentarios' ? comments : 'sin comentarios';
+
+            const emails = userData.data.filter(item => item.content_type === 2).map(item => item.data);
+            const phones = userData.data.filter(item => item.content_type === 3).map(item => item.data);
+            const signatures = userData.data.filter(item => item.content_type === 4).map(item => item.data);
+            currentY += 10;
+
+            // Configurar encabezado general del documento
+            doc.setFont('Montserrat', 'bold');
+            doc.setFontSize(16);
+            doc.addImage('../../../src/assets/images/logo-uca.png', 'png', 10, 10, 30, 40, 'logo-uca', 'MEDIUM');
+            doc.text('Universidad Centroamericana "José Simeón Cañas"', 55, 20);
+            doc.text('Departamento de Ciencias Energéticas y Fluídicas', 55, 30);
+            doc.text('Solicitud de Instructoría', 80, 40);
+
+            doc.setFontSize(12);
+            // Agregar la información de cada solicitud
+            const addText = (text, x, y) => {
+                doc.text(text, x, y);
+                return y + lineHeight;
+            };
+
+            const addArrayContent = (label, array, x, y) => {
+                doc.text(`${label}:`, x, y);
+                array.forEach((item, index) => {
+                    doc.text(item, x + ((index + 1) * 45), y);
+                });
+                return y + lineHeight;
+            };
+
+            const segundaOpcionText = userData.seg_op === '0' ? "Segunda opción no seleccionada" : `Segunda opción: ${userData.seg_op}`;
+            currentY = addText(`${userData.firstname} ${userData.lastname}`, 10, currentY);
+            currentY = addText(`${userData.idnumber}`, 130, currentY - lineHeight);
+            currentY = addText(`Primera opción: ${userData.prim_op}`, 10, currentY);
+            currentY = addText(segundaOpcionText, 10, currentY);
+            currentY = addText(`Tipo de contratación solicitada: ${isRemunerated(userData.es_remunerado)}`, 10, currentY);
+            currentY = addText(`Nota con que aprobó la materia: ${userData.nota}`, 10, currentY);
+            currentY = addText(`CUM: ${userData.cum}`, 10, currentY);
+            currentY = addText(`Número de materias aprobadas: ${userData.nmaterias}`, 10, currentY);
+            currentY = addText(`Carrera: ${userData.carrera}`, 10, currentY);
+            currentY = addText(`Nivel de estudio: ${academicLevel(userData.niv_est)}`, 10, currentY);
+
+            currentY = addArrayContent('Correo(s)', emails, 10, currentY);
+            currentY = addArrayContent('Teléfonos', phones, 10, currentY);
+
+            // Agregar materias inscritas
+            const longSignatures = `${signatures}`;
+            const signatureLines = doc.splitTextToSize(longSignatures, maxWidth);
+            currentY = addText('Materias inscritas:', 10, currentY);
+            doc.text(signatureLines, 10, currentY);
+            currentY += signatureLines.length * lineHeight;
+
+            // Agregar experiencia
+            const longExperience = userData.experiencia ? `${experienceInfo(userData.experiencia)}` : "Sin experiencia especificada";
+            const experienceLines = doc.splitTextToSize(longExperience, maxWidth);
+            currentY = addText('Experiencia:', 10, currentY);
+            doc.text(experienceLines, 10, currentY);
+            currentY += experienceLines.length + (lineHeight * 2);
+
+            const longComments = userData.comments ? `${commentInfo(userData.comments)}` : "Sin comentarios";
+            const commentLines = doc.splitTextToSize(longComments, maxWidth);
+            currentY = addText('Comentarios:', 10, currentY);
+            doc.text(commentLines, 10, currentY);
+            currentY += commentLines.length * lineHeight;
+
+            // Línea de firma del catedrático
+            currentY = addText('_______________________', 10, 270);
+            addText('Catedrático', 10, 280);
+
+            // Salto de página si es necesario (si el contenido supera el límite de la página)
+            if (currentY > 270) {
+                doc.addPage();
+                currentY = 60; // Reiniciar la posición en Y para la nueva página
+            }
+        });
+
+        // Guardar el PDF final con todas las solicitudes
+        doc.save('Listado_Solicitudes.pdf');
+    };
+
+
     return (
         <div className='adminPageComponent'>
             <UplineComponent />
@@ -297,7 +415,7 @@ function AdminPageComponent() {
                         onExtract={obtainSelectValue} identifier="estado"
                         value={parraphs[0].estado} />
                     <section className='searchButtonsContainer'>
-                        <button className='btnGenerate'>Generar PDF</button>
+                        <button className='btnGenerate' onClick={generatePDF}>Generar PDF</button>
                         <button className='btnSearch'>Buscar</button>
                         <button className='btnClear' onClick={cleanSearchData}>Limpiar</button>
                     </section>

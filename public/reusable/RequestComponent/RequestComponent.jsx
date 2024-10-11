@@ -55,7 +55,6 @@ function RequestComponent(props) {
         handleAcceptRequest()
     };
 
-
     const isRemunerated = (es_remunerado) => es_remunerado === '0' ? 'Por horas sociales' : 'Remunerado';
 
     const academicLevels = {
@@ -114,54 +113,6 @@ function RequestComponent(props) {
         console.log(option)
     };
 
-    //Función para generar PDF con la información de una request
-    /* const generatePDF = () => {
-
-        var doc = new jsPDF()
-
-        const addArrayContent = (label, array, x, y, lineHeight = 10) => {
-            doc.text(`${label}:`, x, y);
-            array.forEach((item, index) => {
-                doc.text(item, x + (lineHeight * 4) * (index + 1), y);
-            });
-            return y;
-        };
-
-        const longSignatures = `${signatures}`
-        const longExperience = `${experienceInfo(userData.experiencia)}`
-        const maxWidth = 190
-        let currentY = 150;
-        doc.setFont('Montserrat', "bold")
-        doc.setFontSize(14)
-        doc.addImage('../../../src/assets/images/logo-uca.png', 'png', 10, 10, 30, 40, "logo-uca", "MEDIUM")
-        doc.text('Universidad Centroamericana "José Simeón Cañas"', 55, 20)
-        doc.text("Departamento de Ciencias Energéticas y Fluídicas", 55, 30)
-        doc.text("Solicitud de Instructoría", 80, 40)
-        doc.setFont('Montserrat', "normal")
-        doc.setFontSize(12)
-        doc.text(`${userData.firstname} ${userData.lastname}`, 10, 60)
-        doc.text(`${userData.idnumber}`, 130, 60)
-        doc.text(`Primera opción: ${userData.prim_op}`, 10, 70)
-        doc.text(`Segunda opción: ${userData.seg_op}`, 10, 80)
-        doc.text(`Tipo de contratación solicitada: ${isRemunerated(userData.es_remunerado)}`, 10, 90)
-        doc.text(`Nota con que aprobó la materia para la cual solicita instructoría en 1a. opción: ${userData.nota}`, 10, 100)
-        doc.text(`CUM: ${userData.cum}`, 10, 110)
-        doc.text(`Número de materias aprobadas: ${userData.nmaterias}`, 10, 120)
-        doc.text(`Carrera: ${userData.carrera}`, 10, 130)
-        doc.text(`Nivel de estudio: ${academicLevel(userData.niv_est)}`, 10, 140)
-        currentY = addArrayContent('Correo(s)', emails, 10, currentY);
-        currentY = addArrayContent('Teléfonos', phones, 10, currentY + 10);
-        const lines = doc.splitTextToSize(longSignatures, maxWidth)
-        doc.text(`Materias inscritas:`, 10, currentY + 10)
-        doc.text(lines, 10, currentY+20)
-        const experience = doc.splitTextToSize(longExperience, maxWidth)
-        doc.text(`Experiencia:`, 10, currentY + 35)
-        doc.text(experience, 10, currentY+45)
-        doc.text(`Comentarios: ${commentInfo(userData.comments)}`, 10, currentY + 55)
-        doc.text("_______________________", 10, 270)
-        doc.text("Catedrático", 10, 280)
-        doc.save(`Solicitud ${userData.idnumber}`)
-    } */
     const generatePDF = () => {
         const doc = new jsPDF();
         const maxWidth = 190;
