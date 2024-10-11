@@ -8,6 +8,7 @@ import RequestModalComponent from '../RequestModalComponent/RequestModalComponen
 import SelectSignatureComponent from '../SelectSignatureComponent/SelectSignatureComponent';
 import api from '../../../src/services/services'
 import { useParams } from 'react-router-dom'
+import jsPDF from 'jspdf';
 
 function RequestComponent(props) {
     const id = useParams()
@@ -111,7 +112,34 @@ function RequestComponent(props) {
         setSelectedSignature(signature)
         setOption(option)
         console.log(option)
-    };
+    }; 
+
+    //Función para generar PDF con la información de una request
+    const generatePDF = () => {
+        var doc = new jsPDF()
+        doc.text('Universidad Centroamericana "José Simeón Cañas"', 10, 20)
+        doc.text("Departamento de Ciencias Energéticas y Fluídicas", 10, 30)
+        doc.text("Solicitud de Instructoría", 10, 50)
+        doc.text(`${userData.firstname} ${userData.lastname}`, 10, 70)
+        doc.text(`${userData.idnumber}`, 70, 70)
+        doc.text(`Primera opción: ${userData.prim_op}`, 10, 80)
+        doc.text(`Segunda opción: ${userData.seg_op}`, 10, 90)
+        doc.text(`Tipo de contratación solicitada: ${isRemunerated(userData.es_remunerado)}`, 10, 100)
+        doc.text(`Nota con que aprobó la materia para la cual solicita instructoría en 1a. opción: ${userData.nota}`, 10, 110)
+        doc.text(`CUM: ${userData.cum}`, 10, 120)
+        doc.text(`Número de materias aprobadas: ${userData.nmaterias}`, 10, 130)
+        doc.text(`Carrera: ${userData.carrera}`, 10, 140)
+        doc.text(`Nivel de estudio: ${academicLevel(userData.niv_est)}`, 10, 150)
+        doc.text(`Correo(s):`, 10, 160)
+        doc.text(`${emails[0]}      ${emails[1]}`, 10, 170)
+        doc.text(`Teléfonos:`, 10, 180)
+        doc.text(`${phones[0]}      ${phones[1]}`, 10, 190)
+        doc.text("Materias inscritas", 10, 200)
+        doc.text(`${signatures}`, 10, 210)
+        doc.text("_______________________", 10, 280)
+        doc.text("Catedrático", 10, 290)
+        doc.save(`Solicitud ${userData.idnumber}`)
+    }
 
     return (
         <div className='instructorRequest'>
@@ -147,7 +175,7 @@ function RequestComponent(props) {
                 </p>
             </section>
             <FaCheckCircle className={`checkIcon ${isShowing && "click"} `} onClick={acceptRequest} />
-            <IoMdPrint className='printIcon' />
+            <IoMdPrint className='printIcon' onClick={generatePDF}/>
         </div>
     )
 }
