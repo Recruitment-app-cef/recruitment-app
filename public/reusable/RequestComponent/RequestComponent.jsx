@@ -81,7 +81,7 @@ function RequestComponent(props) {
     const signatures = userData.data.filter(item => item.content_type === 4).map(item => item.data);
 
     const handleAcceptRequest = async () => {
-        
+
         const data = {
             selectedOption: option,
             idUser: userData.idnumber,
@@ -90,7 +90,7 @@ function RequestComponent(props) {
         };
 
         const response = await api.acceptRequest(data);
-        
+
         if (response) {
             console.log("Registro actualizado");
             // Actualizar el estado del usuario si es necesario
@@ -112,34 +112,134 @@ function RequestComponent(props) {
         setSelectedSignature(signature)
         setOption(option)
         console.log(option)
-    }; 
+    };
 
     //Función para generar PDF con la información de una request
-    const generatePDF = () => {
+    /* const generatePDF = () => {
+
         var doc = new jsPDF()
-        doc.text('Universidad Centroamericana "José Simeón Cañas"', 10, 20)
-        doc.text("Departamento de Ciencias Energéticas y Fluídicas", 10, 30)
-        doc.text("Solicitud de Instructoría", 10, 50)
-        doc.text(`${userData.firstname} ${userData.lastname}`, 10, 70)
-        doc.text(`${userData.idnumber}`, 70, 70)
-        doc.text(`Primera opción: ${userData.prim_op}`, 10, 80)
-        doc.text(`Segunda opción: ${userData.seg_op}`, 10, 90)
-        doc.text(`Tipo de contratación solicitada: ${isRemunerated(userData.es_remunerado)}`, 10, 100)
-        doc.text(`Nota con que aprobó la materia para la cual solicita instructoría en 1a. opción: ${userData.nota}`, 10, 110)
-        doc.text(`CUM: ${userData.cum}`, 10, 120)
-        doc.text(`Número de materias aprobadas: ${userData.nmaterias}`, 10, 130)
-        doc.text(`Carrera: ${userData.carrera}`, 10, 140)
-        doc.text(`Nivel de estudio: ${academicLevel(userData.niv_est)}`, 10, 150)
-        doc.text(`Correo(s):`, 10, 160)
-        doc.text(`${emails[0]}      ${emails[1]}`, 10, 170)
-        doc.text(`Teléfonos:`, 10, 180)
-        doc.text(`${phones[0]}      ${phones[1]}`, 10, 190)
-        doc.text("Materias inscritas", 10, 200)
-        doc.text(`${signatures}`, 10, 210)
-        doc.text("_______________________", 10, 280)
-        doc.text("Catedrático", 10, 290)
+
+        const addArrayContent = (label, array, x, y, lineHeight = 10) => {
+            doc.text(`${label}:`, x, y);
+            array.forEach((item, index) => {
+                doc.text(item, x + (lineHeight * 4) * (index + 1), y);
+            });
+            return y;
+        };
+
+        const longSignatures = `${signatures}`
+        const longExperience = `${experienceInfo(userData.experiencia)}`
+        const maxWidth = 190
+        let currentY = 150;
+        doc.setFont('Montserrat', "bold")
+        doc.setFontSize(14)
+        doc.addImage('../../../src/assets/images/logo-uca.png', 'png', 10, 10, 30, 40, "logo-uca", "MEDIUM")
+        doc.text('Universidad Centroamericana "José Simeón Cañas"', 55, 20)
+        doc.text("Departamento de Ciencias Energéticas y Fluídicas", 55, 30)
+        doc.text("Solicitud de Instructoría", 80, 40)
+        doc.setFont('Montserrat', "normal")
+        doc.setFontSize(12)
+        doc.text(`${userData.firstname} ${userData.lastname}`, 10, 60)
+        doc.text(`${userData.idnumber}`, 130, 60)
+        doc.text(`Primera opción: ${userData.prim_op}`, 10, 70)
+        doc.text(`Segunda opción: ${userData.seg_op}`, 10, 80)
+        doc.text(`Tipo de contratación solicitada: ${isRemunerated(userData.es_remunerado)}`, 10, 90)
+        doc.text(`Nota con que aprobó la materia para la cual solicita instructoría en 1a. opción: ${userData.nota}`, 10, 100)
+        doc.text(`CUM: ${userData.cum}`, 10, 110)
+        doc.text(`Número de materias aprobadas: ${userData.nmaterias}`, 10, 120)
+        doc.text(`Carrera: ${userData.carrera}`, 10, 130)
+        doc.text(`Nivel de estudio: ${academicLevel(userData.niv_est)}`, 10, 140)
+        currentY = addArrayContent('Correo(s)', emails, 10, currentY);
+        currentY = addArrayContent('Teléfonos', phones, 10, currentY + 10);
+        const lines = doc.splitTextToSize(longSignatures, maxWidth)
+        doc.text(`Materias inscritas:`, 10, currentY + 10)
+        doc.text(lines, 10, currentY+20)
+        const experience = doc.splitTextToSize(longExperience, maxWidth)
+        doc.text(`Experiencia:`, 10, currentY + 35)
+        doc.text(experience, 10, currentY+45)
+        doc.text(`Comentarios: ${commentInfo(userData.comments)}`, 10, currentY + 55)
+        doc.text("_______________________", 10, 270)
+        doc.text("Catedrático", 10, 280)
         doc.save(`Solicitud ${userData.idnumber}`)
-    }
+    } */
+    const generatePDF = () => {
+        const doc = new jsPDF();
+        const maxWidth = 190;
+        const lineHeight = 10;
+        let currentY = 60;
+
+        // Configurar el texto del encabezado
+        doc.setFont('Montserrat', 'bold');
+        doc.setFontSize(14);
+        doc.addImage('../../../src/assets/images/logo-uca.png', 'png', 10, 10, 30, 40, 'logo-uca', 'MEDIUM');
+        doc.text('Universidad Centroamericana "José Simeón Cañas"', 55, 20);
+        doc.text('Departamento de Ciencias Energéticas y Fluídicas', 55, 30);
+        doc.text('Solicitud de Instructoría', 80, 40);
+
+        // Configurar el texto del cuerpo
+        doc.setFont('Montserrat', 'normal');
+        doc.setFontSize(12);
+
+        // Función para agregar texto y ajustar la posición Y automáticamente
+        const addText = (text, x, y) => {
+            doc.text(text, x, y);
+            return y + lineHeight;
+        };
+
+        // Función para agregar contenido de arreglos dinámicamente
+        const addArrayContent = (label, array, x, y) => {
+            doc.text(`${label}:`, x, y);
+            array.forEach((item, index) => {
+                doc.text(item, x + ((index + 1) * 40), y);  // Ajustar horizontalmente si hay varios elementos
+            });
+            return y + lineHeight;  // Mantener la misma Y ya que todos están en la misma línea
+        };
+
+        // Agregar la información del usuario
+        currentY = addText(`${userData.firstname} ${userData.lastname}`, 10, currentY);
+        currentY = addText(`${userData.idnumber}`, 130, currentY - lineHeight);  // Misma línea para el número de ID
+        currentY = addText(`Primera opción: ${userData.prim_op}`, 10, currentY);
+        const segundaOpcionText = userData.seg_op === '0' ? "Segunda opción no seleccionada" : `Segunda opción: ${userData.seg_op}`;
+        currentY = addText(segundaOpcionText, 10, currentY);
+        currentY = addText(`Tipo de contratación solicitada: ${isRemunerated(userData.es_remunerado)}`, 10, currentY);
+        currentY = addText(`Nota con que aprobó la materia para la cual solicita instructoría en 1a. opción: ${userData.nota}`, 10, currentY);
+        currentY = addText(`CUM: ${userData.cum}`, 10, currentY);
+        currentY = addText(`Número de materias aprobadas: ${userData.nmaterias}`, 10, currentY);
+        currentY = addText(`Carrera: ${userData.carrera}`, 10, currentY);
+        currentY = addText(`Nivel de estudio: ${academicLevel(userData.niv_est)}`, 10, currentY);
+
+        // Agregar correos y teléfonos de manera dinámica
+        currentY = addArrayContent('Correo(s)', emails, 10, currentY);
+        currentY = addArrayContent('Teléfonos', phones, 10, currentY);
+
+        // Agregar materias inscritas
+        const longSignatures = `${signatures}`;
+        const signatureLines = doc.splitTextToSize(longSignatures, maxWidth);
+        currentY = addText('Materias inscritas:', 10, currentY);
+        doc.text(signatureLines, 10, currentY);
+        currentY += signatureLines.length * lineHeight;
+
+        // Agregar experiencia
+        const longExperience = userData.experiencia ? `${experienceInfo(userData.experiencia)}` : "Sin experiencia especificada";
+        const experienceLines = doc.splitTextToSize(longExperience, maxWidth);
+        currentY = addText('Experiencia:', 10, currentY);
+        doc.text(experienceLines, 10, currentY);
+        currentY += experienceLines.length + (lineHeight * 2);
+
+        const longComments = userData.comments ? `${commentInfo(userData.comments)}` : "Sin comentarios";
+        const commentLines = doc.splitTextToSize(longComments, maxWidth);
+        currentY = addText('Comentarios:', 10, currentY);
+        doc.text(commentLines, 10, currentY);
+        currentY += commentLines.length * lineHeight;
+
+        // Línea de firma del catedrático
+        currentY = addText('_______________________', 10, 270);
+        addText('Catedrático', 10, 280);
+
+        // Guardar el PDF
+        doc.save(`Solicitud ${userData.idnumber}.pdf`);
+    };
+
 
     return (
         <div className='instructorRequest'>
@@ -175,7 +275,7 @@ function RequestComponent(props) {
                 </p>
             </section>
             <FaCheckCircle className={`checkIcon ${isShowing && "click"} `} onClick={acceptRequest} />
-            <IoMdPrint className='printIcon' onClick={generatePDF}/>
+            <IoMdPrint className='printIcon' onClick={generatePDF} />
         </div>
     )
 }
