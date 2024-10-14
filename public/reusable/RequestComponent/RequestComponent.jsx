@@ -147,6 +147,10 @@ function RequestComponent(props) {
         };
 
         // Agregar la información del usuario
+
+        if(acceptId !== ''){
+            currentY = addText(`Aceptado por ${acceptId}`, 65, currentY)
+        }
         currentY = addText(`${userData.firstname} ${userData.lastname}`, 10, currentY);
         currentY = addText(`${userData.idnumber}`, 130, currentY - lineHeight);  // Misma línea para el número de ID
         currentY = addText(`Primera opción: ${userData.prim_op}`, 10, currentY);
