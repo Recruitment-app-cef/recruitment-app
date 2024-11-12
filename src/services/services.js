@@ -115,6 +115,7 @@ const api = {
         }
     },
     getAdminData: async (id) => {
+
         try {
             const response = await fetch(`${BASE_URL}/data/user?id=${id}`)
 

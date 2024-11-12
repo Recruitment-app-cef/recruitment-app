@@ -131,10 +131,28 @@ function AdminPageComponent() {
 
                 } else if (firstOptionValue == '') {
 
-                    query = new myQuery(parraphs[2].contratacion, parraphs[3].ciclo,
-                        parraphs[0].estado, parraphs[1].materia, [secondOptionValue]);
+                    if (parraphs[1].materia == "Electricidd & Magnetismo Discusión") {
 
-                    fetchedRequests = await api.getRequests(query.getQuery())
+                        query = new myQuery(parraphs[2].contratacion, parraphs[3].ciclo,
+                            parraphs[0].estado, "Electricidd %26 Magnetismo Discusión", [secondOptionValue]);
+
+                        fetchedRequests = await api.getRequests(query.getQuery())
+
+                    } else if (parraphs[1].materia == "Electricidd & Magnetismo Laboratorios") {
+
+                        query = new myQuery(parraphs[2].contratacion, parraphs[3].ciclo,
+                            parraphs[0].estado, "Electricidd %26 Magnetismo Laboratorios", [secondOptionValue]);
+
+                        fetchedRequests = await api.getRequests(query.getQuery())
+
+                    } else {
+
+                        query = new myQuery(parraphs[2].contratacion, parraphs[3].ciclo,
+                            parraphs[0].estado, parraphs[1].materia, [secondOptionValue]);
+
+                        fetchedRequests = await api.getRequests(query.getQuery())
+
+                    }
 
                 } else {
 
@@ -260,7 +278,7 @@ function AdminPageComponent() {
         setValue(event)
     }
 
-    const generatePDF = () => {
+    const generatePDF = async () => {
         const doc = new jsPDF();
         const maxWidth = 190; // Ancho máximo para el texto
         const lineHeight = 10; // Altura entre líneas de texto
@@ -276,9 +294,8 @@ function AdminPageComponent() {
 
         currentY += 10;
 
-        // Iterar sobre todas las solicitudes
-        requests.forEach((userData, index) => {
-
+        // Iterar sobre todas las solicitudes usando `for...of` para poder usar `await`
+        for (const userData of requests) {
             const isRemunerated = (es_remunerado) => es_remunerado === '0' ? 'Por horas sociales' : 'Remunerado';
 
             const academicLevels = {
@@ -304,7 +321,6 @@ function AdminPageComponent() {
             const signatures = userData.data.filter(item => item.content_type === 4).map(item => item.data);
             currentY += 10;
 
-            // Configurar encabezado general del documento
             doc.setFont('Montserrat', 'bold');
             doc.setFontSize(16);
             doc.addImage('../../../src/assets/images/logo-uca.png', 'png', 10, 10, 30, 40, 'logo-uca', 'MEDIUM');
@@ -312,13 +328,17 @@ function AdminPageComponent() {
             doc.text('Departamento de Ciencias Energéticas y Fluídicas', 55, 30);
             doc.text('Solicitud de Instructoría', 80, 40);
 
+            // Agregar encabezado de cada solicitud
+            doc.setFont('Montserrat', 'normal');
             doc.setFontSize(12);
-            // Agregar la información de cada solicitud
+
+            // Función para agregar texto
             const addText = (text, x, y) => {
                 doc.text(text, x, y);
                 return y + lineHeight;
             };
 
+            // Función para agregar arrays de contenido
             const addArrayContent = (label, array, x, y) => {
                 doc.text(`${label}:`, x, y);
                 array.forEach((item, index) => {
@@ -327,11 +347,28 @@ function AdminPageComponent() {
                 return y + lineHeight;
             };
 
+            // Función asincrónica para obtener información del administrador
+            const adminInfo = async (id, x, y) => {
+                try {
+                    const response = await api.getAdminData(id);
+                    const nombre = `${response.data[0].firstname} ${response.data[0].lastname}`;
+                    return addText(`Aceptado por ${nombre}`, x, y);
+                } catch (error) {
+                    console.error("Error al obtener los datos del administrador:", error);
+                    return y;
+                }
+            };
+
             const segundaOpcionText = userData.seg_op === '0' ? "Segunda opción no seleccionada" : `Segunda opción: ${userData.seg_op}`;
+            if (userData.accept != 0) {
+                currentY = await adminInfo(userData.accepted, 65, currentY);
+            }
             currentY = addText(`${userData.firstname} ${userData.lastname}`, 10, currentY);
             currentY = addText(`${userData.idnumber}`, 130, currentY - lineHeight);
             currentY = addText(`Primera opción: ${userData.prim_op}`, 10, currentY);
             currentY = addText(segundaOpcionText, 10, currentY);
+
+
             currentY = addText(`Tipo de contratación solicitada: ${isRemunerated(userData.es_remunerado)}`, 10, currentY);
             currentY = addText(`Nota con que aprobó la materia: ${userData.nota}`, 10, currentY);
             currentY = addText(`CUM: ${userData.cum}`, 10, currentY);
@@ -356,6 +393,7 @@ function AdminPageComponent() {
             doc.text(experienceLines, 10, currentY);
             currentY += experienceLines.length + (lineHeight * 2);
 
+            // Agregar comentarios
             const longComments = userData.comments ? `${commentInfo(userData.comments)}` : "Sin comentarios";
             const commentLines = doc.splitTextToSize(longComments, maxWidth);
             currentY = addText('Comentarios:', 10, currentY);
@@ -366,16 +404,17 @@ function AdminPageComponent() {
             currentY = addText('_______________________', 10, 270);
             addText('Catedrático', 10, 280);
 
-            // Salto de página si es necesario (si el contenido supera el límite de la página)
+            // Salto de página si es necesario
             if (currentY > 270) {
                 doc.addPage();
-                currentY = 60; // Reiniciar la posición en Y para la nueva página
+                currentY = 55; // Reiniciar la posición en Y para la nueva página
             }
-        });
+        }
 
         // Guardar el PDF final con todas las solicitudes
         doc.save('Listado_Solicitudes.pdf');
     };
+
 
 
     return (
